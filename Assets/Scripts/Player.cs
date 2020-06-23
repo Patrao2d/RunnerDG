@@ -70,7 +70,16 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            _rb.AddForce(0, -1000f * Time.fixedDeltaTime, 0, ForceMode.Impulse);
+            if (!_onGround && !_isSliding)
+            {
+                transform.localScale /= 1.5f;
+                _isSliding = true;
+                StartCoroutine(Sliding());
+            }
+            else
+            {
+                _rb.AddForce(0, -1000f * Time.fixedDeltaTime, 0, ForceMode.Impulse);
+            }
         }
 
         //_onGround = Physics.BoxCast(playerCol)
@@ -86,17 +95,17 @@ public class Player : MonoBehaviour
         }
 
         // works this way for some reason, TO FIX LATER
-        if (Input.GetKeyDown(KeyCode.Space) && !_onGround )
+        if (Input.GetKeyDown(KeyCode.Space) && !_onGround || Input.GetKeyDown(KeyCode.W) && !_onGround)
         {
             _rb.AddForce(0, 1500f * Time.fixedDeltaTime, 0, ForceMode.Impulse);   
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !_isSliding)
+       /* if (Input.GetKeyDown(KeyCode.LeftShift) && !_isSliding)
         {
             transform.localScale /= 1.5f;
             _isSliding = true;
             StartCoroutine(Sliding());
-        }
+        }*/
 
     }
 
