@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < _nPlayers; i++)
         {
             int __randomNumber = Random.Range(0, 100);
-            if (__randomNumber < 5)
+            if (__randomNumber < 50)
             {
                 _nPlayers--;
             }
@@ -47,6 +47,9 @@ public class GameManager : MonoBehaviour
         if (_nPlayers == 0)
         {
             Debug.Log("Win crl !");
+            // Pause
+            // Open win menu
+            GameCanvas.instance.WinMenu();
         }
         playerLeft.text = _nPlayers.ToString();
         //Debug.Log(playerLeft.text);
