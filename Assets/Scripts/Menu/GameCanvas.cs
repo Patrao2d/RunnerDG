@@ -10,6 +10,9 @@ public class GameCanvas : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject loseMenu;
 
+    // Int
+    public int nextSceneLoad;
+
     // Bools
     private bool _isGamePaused = false;
     private bool _wonGame =false;
@@ -23,6 +26,7 @@ public class GameCanvas : MonoBehaviour
     void Start()
     {
         _instance = this;
+        nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
     }
 
     // Update is called once per frame
@@ -30,9 +34,13 @@ public class GameCanvas : MonoBehaviour
     {
         Debug.Log(Time.timeScale);
 
-        if (_wonGame && Time.timeScale > 0)
+        if (_wonGame && Time.timeScale >= 0.1f)
         {
-            Time.timeScale -= 0.1f;
+            Time.timeScale -= 0.025f;
+        }
+        else if (_wonGame && Time.timeScale < 0.1f)
+        {
+            Time.timeScale = 0;
         }
     }
 
@@ -44,7 +52,21 @@ public class GameCanvas : MonoBehaviour
 
     public void NextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        // ultimo nivel do build index
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            Debug.Log("yaya");
+        }
+        else 
+        {
+            SceneManager.LoadScene(nextSceneLoad);
+
+            if (nextSceneLoad > PlayerPrefs.GetInt("levelAt"))
+            {
+                PlayerPrefs.SetInt("levelAt", nextSceneLoad);
+            }
+        }
+
     }
 
     public void TryAgain()

@@ -1670,6 +1670,7 @@ MonoBehaviour:
   winMenu: {fileID: 1151451150}
   pauseMenu: {fileID: 1593124584}
   loseMenu: {fileID: 1055795861}
+  nextSceneLoad: 0
 --- !u!1 &1244186577
 GameObject:
   m_ObjectHideFlags: 0
@@ -3178,7 +3179,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8, y: 3, z: 0.01}
+  m_Size: {x: 8, y: 8, z: 0.01}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2126668959
 GameObject:

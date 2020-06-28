@@ -32,7 +32,7 @@ public class Obstacle : MonoBehaviour
 
     private IEnumerator CollisionCooldown()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.05f);
         _canCollide = true;
     }
 }
