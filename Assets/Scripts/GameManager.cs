@@ -32,6 +32,11 @@ public class GameManager : MonoBehaviour
         {
             countPlayersAlive();
         }
+
+        if (Input.GetKeyDown(KeyCode.Delete))
+        {
+            PlayerPrefs.DeleteKey("levelAt");
+        }
     }
 
     public void countPlayersAlive()
