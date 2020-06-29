@@ -15,7 +15,7 @@ public class GameCanvas : MonoBehaviour
 
     // Bools
     private bool _isGamePaused = false;
-    private bool _wonGame =false;
+    private bool _endGame =false;
 
     private static GameCanvas _instance;
 
@@ -34,11 +34,11 @@ public class GameCanvas : MonoBehaviour
     {
         Debug.Log(Time.timeScale);
 
-        if (_wonGame && Time.timeScale >= 0.1f)
+        if (_endGame && Time.timeScale >= 0.1f)
         {
             Time.timeScale -= 0.025f;
         }
-        else if (_wonGame && Time.timeScale < 0.1f)
+        else if (_endGame && Time.timeScale < 0.1f)
         {
             Time.timeScale = 0;
         }
@@ -48,6 +48,7 @@ public class GameCanvas : MonoBehaviour
     {
         // Goto main menu
         SceneManager.LoadScene(0);
+        Time.timeScale = 1;
     }
 
     public void NextLevel()
@@ -66,12 +67,13 @@ public class GameCanvas : MonoBehaviour
                 PlayerPrefs.SetInt("levelAt", nextSceneLoad);
             }
         }
-
+        Time.timeScale = 1;
     }
 
     public void TryAgain()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1;
     }
 
     public void GetShield()
@@ -79,6 +81,7 @@ public class GameCanvas : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         // Force AD
         // Add shield
+        Time.timeScale = 1;
     }
 
     public void WinMenu()
@@ -90,6 +93,7 @@ public class GameCanvas : MonoBehaviour
     public void LoseMenu()
     {
         loseMenu.SetActive(true);
+        SlowdownPause();
     }
 
     public void PauseButton()
@@ -110,6 +114,6 @@ public class GameCanvas : MonoBehaviour
 
     private void SlowdownPause()
     {
-        _wonGame = true;
+        _endGame = true;
     }
 }

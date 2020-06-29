@@ -21,7 +21,8 @@ public class Hazard : MonoBehaviour
         if (other.CompareTag("Player") && !Player.instance.isInvulnerable)
         {
             Debug.Log("rip");
-            GameManager.instance.ResetScene();
+            //GameManager.instance.ResetScene();
+            GameCanvas.instance.LoseMenu();
         }
     }
 
