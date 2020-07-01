@@ -35,7 +35,7 @@ public class Track : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 _speed = new Vector3 (0f, 0f, -GameManager.speed);
+        Vector3 _speed = new Vector3 (0f, 0f, -GameManager.instance.speed);
         transform.Translate(_speed);
         //Debug.Log(_speed);
         speed = _speed;
@@ -49,7 +49,8 @@ public class Track : MonoBehaviour
             //float posZMin = (-250f / newObstacles.Count) + (-250f / newObstacles.Count) * i;
             //float posZMax = (250f / newObstacles.Count) + (250f / newObstacles.Count) * i + 1;
             //newObstacles[i].transform.localPosition = new Vector3(0, 0, Random.Range(posZMin, posZMax));
-            float __Zdistance = 500 / newObstacles.Count;
+            // 500
+            float __Zdistance = 50 / newObstacles.Count;
             float __Zpos = __Zdistance * i;
             newObstacles[i].transform.localPosition = new Vector3(0, 0, __Zpos);
             newObstacles[i].SetActive(true);
@@ -95,6 +96,6 @@ public class Track : MonoBehaviour
         }
 
         PositionateObstacles();
-        GameManager.instance.IncreaseSpeed();
+        //GameManager.instance.IncreaseSpeed();
     }
 }

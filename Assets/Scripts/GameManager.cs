@@ -6,8 +6,8 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public static float speed;
-    private int _nPlayers;
+    public float speed;
+    public int nPlayers;
     public TextMeshProUGUI playerLeft;
 
     private static GameManager _instance;
@@ -21,8 +21,8 @@ public class GameManager : MonoBehaviour
     {
         _instance = this;
         speed = 1;
-        _nPlayers = 99;
-        playerLeft.text = _nPlayers.ToString();
+        nPlayers = 100;
+        playerLeft.text = nPlayers.ToString();
     }
 
     // Update is called once per frame
@@ -41,22 +41,22 @@ public class GameManager : MonoBehaviour
 
     public void countPlayersAlive()
     {
-        for (int i = 0; i < _nPlayers; i++)
+        for (int i = 0; i < nPlayers; i++)
         {
             int __randomNumber = Random.Range(0, 100);
             if (__randomNumber < 50)
             {
-                _nPlayers--;
+                nPlayers--;
             }
         }
-        if (_nPlayers == 0)
+        if (nPlayers == 1)
         {
             Debug.Log("Win crl !");
             // Pause
             // Open win menu
             GameCanvas.instance.WinMenu();
         }
-        playerLeft.text = _nPlayers.ToString();
+        playerLeft.text = nPlayers.ToString();
         //Debug.Log(playerLeft.text);
         //Debug.Log(_nPlayers);
     }

@@ -8,7 +8,7 @@ public class TrackController : MonoBehaviour
     private GameObject _currentTrack;
     private GameObject _lastTrack;
     private int _currentTrackValue = 0;
-    private int _currentLastTrackValue = 3;
+    private int _currentLastTrackValue = 9;
     private static TrackController _instance;
 
     public static TrackController instance
@@ -20,7 +20,7 @@ public class TrackController : MonoBehaviour
     {
         _instance = this;
         _currentTrack = Track[0];
-        _lastTrack = Track[3];
+        _lastTrack = Track[9];
 
         Debug.Log(_currentTrack);
         Debug.Log(_lastTrack);
@@ -38,12 +38,13 @@ public class TrackController : MonoBehaviour
         //Debug.Log("mudou");
         //transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 500 * 4);
         //currentTrack.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 500 * 4);
-        _currentTrack.transform.position = new Vector3(_lastTrack.transform.position.x, _lastTrack.transform.position.y, _lastTrack.transform.position.z + 500);
+        // 500
+        _currentTrack.transform.position = new Vector3(_lastTrack.transform.position.x, _lastTrack.transform.position.y, _lastTrack.transform.position.z + 50);
 
         _lastTrack = _currentTrack;
 
 
-        if (_currentTrack == Track[3])
+        if (_currentTrack == Track[9])
         {
             _currentTrack = Track[0];
             _currentTrackValue = 0;
