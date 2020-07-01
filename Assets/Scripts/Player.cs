@@ -17,11 +17,12 @@ public class Player : MonoBehaviour
     private bool _onGround;
     private bool _isSliding;
     public bool isInvulnerable;
+    private bool canSwipe = true;
 
     // Floats
     private float _currentLane = 0;
     public float laneSpeed;
-    public float minSwipeLength = 200f;
+    public float minSwipeLength = 75f;
 
     // RigidBodys
     private Rigidbody _rb;
@@ -136,20 +137,19 @@ public class Player : MonoBehaviour
 
     public void DetectSwipe()
     {
-        if (Input.touches.Length > 0)
+        if (Input.touches.Length > 0 && canSwipe == true)
         {
             Touch t = Input.GetTouch(0);
 
             if (t.phase == TouchPhase.Began)
             {
                 firstPressPos = new Vector2(t.position.x, t.position.y);
-            }
+            } 
 
-            if (t.phase == TouchPhase.Ended)
+            if (t.phase == TouchPhase.Moved)
             {
                 secondPressPos = new Vector2(t.position.x, t.position.y);
                 currentSwipe = new Vector3(secondPressPos.x - firstPressPos.x, secondPressPos.y - firstPressPos.y);
-
                 // Make sure it was a legit swipe, not a tap
                 if (currentSwipe.magnitude < minSwipeLength)
                 {
@@ -165,6 +165,8 @@ public class Player : MonoBehaviour
                     swipeDirection = _Swipe.Up;
                     Debug.Log("SWIPE UP");
                     _rb.AddForce(0, 1500f * Time.fixedDeltaTime, 0, ForceMode.Impulse);
+                    canSwipe = false;
+                    Invoke("SwipeCooldown", 0.1f);
                 }
                 else if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f) 
                 {
@@ -180,18 +182,24 @@ public class Player : MonoBehaviour
                     {
                         _rb.AddForce(0, -1000f * Time.fixedDeltaTime, 0, ForceMode.Impulse);
                     }
+                    canSwipe = false;
+                    Invoke("SwipeCooldown", 0.1f);
                 }
                 else if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f) 
                 {
                     swipeDirection = _Swipe.Left;
                     Debug.Log("SWIPE LEFT");
                     ChangeLane(-1.5f);
+                    canSwipe = false;
+                    Invoke("SwipeCooldown", 0.2f);
                 }
                 else if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f) 
                 {
                     swipeDirection = _Swipe.Right;
                     Debug.Log("SWIPE RIGHT");
                     ChangeLane(1.5f);
+                    canSwipe = false;
+                    Invoke("SwipeCooldown", 0.2f);
                 }
             }
         }
@@ -199,6 +207,11 @@ public class Player : MonoBehaviour
         {
             swipeDirection = _Swipe.None;
         }
+    }
+
+    private void SwipeCooldown()
+    {
+        canSwipe = true;
     }
 
 
