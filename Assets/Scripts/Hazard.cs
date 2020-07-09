@@ -18,11 +18,21 @@ public class Hazard : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !Player.instance.isInvulnerable)
+        if (Player.instance.isInvulnerable)
+        return;
+
+        if (other.CompareTag("Player"))
         {
-            Debug.Log("rip");
-            //GameManager.instance.ResetScene();
-            GameCanvas.instance.LoseMenu();
+            if (!Player.instance.isShieldActive)
+            {
+                Debug.Log("rip");
+                //GameManager.instance.ResetScene();
+                GameCanvas.instance.LoseMenu();
+            }
+            else
+            {
+                Player.instance.DeActiveShield();
+            }
         }
     }
 

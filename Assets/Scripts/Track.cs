@@ -35,7 +35,8 @@ public class Track : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 _speed = new Vector3 (0f, 0f, -GameManager.instance.speed);
+        //Vector3 _speed = new Vector3 (0f, 0f, -GameManager.instance.speed);
+        Vector3 _speed = new Vector3(0f, 0f, -SpeedValue.instance.speed);
         transform.Translate(_speed);
         //Debug.Log(_speed);
         speed = _speed;
