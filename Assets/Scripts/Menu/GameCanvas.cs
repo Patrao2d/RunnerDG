@@ -53,21 +53,42 @@ public class GameCanvas : MonoBehaviour
 
     public void NextLevel()
     {
+
         // ultimo nivel do build index
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             Debug.Log("yaya");
         }
-        else 
+        else if (MenuManager.instance.dificultyLevel == 0)
         {
             SceneManager.LoadScene(nextSceneLoad);
 
-            if (nextSceneLoad > PlayerPrefs.GetInt("levelAt"))
+            if (nextSceneLoad > PlayerPrefs.GetInt("levelAtNormal"))
             {
-                PlayerPrefs.SetInt("levelAt", nextSceneLoad);
+                PlayerPrefs.SetInt("levelAtNormal", nextSceneLoad);
+                Debug.Log("normal");
             }
         }
-        Time.timeScale = 1;
+        else if (MenuManager.instance.dificultyLevel == 1)
+        {
+            SceneManager.LoadScene(nextSceneLoad);
+
+            if (nextSceneLoad > PlayerPrefs.GetInt("levelAtHard"))
+            {
+                PlayerPrefs.SetInt("levelAtHard", nextSceneLoad);
+                Debug.Log("hard");
+            }
+        }
+        else if (MenuManager.instance.dificultyLevel == 2)
+        {
+            SceneManager.LoadScene(nextSceneLoad);
+
+            if (nextSceneLoad > PlayerPrefs.GetInt("levelAtNightmare"))
+            {
+                PlayerPrefs.SetInt("levelAtNightmare", nextSceneLoad);
+                Debug.Log("nightmare");
+            }
+        }
     }
 
     public void TryAgain()
@@ -79,15 +100,16 @@ public class GameCanvas : MonoBehaviour
     public void GetShield()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        AdManager.instance.PlayRewardAd();
         // Force AD
         // Add shield
-        Time.timeScale = 1;
+        
     }
 
     public void WinMenu()
     {
         winMenu.SetActive(true);
-        SlowdownPause();
+        SlowdownPause();       
     }
 
     public void LoseMenu()
@@ -110,6 +132,22 @@ public class GameCanvas : MonoBehaviour
             Time.timeScale = 0;   
             _isGamePaused = !_isGamePaused;
         }
+    }
+
+    public void CallNextLevelAd()
+    {
+        int __chanceToAd = Random.Range(1, 3);
+        if (__chanceToAd == 1)
+        {
+            AdManager.instance.PlayInterstitialAd();
+        }
+        else
+        {
+            NextLevel();
+            Time.timeScale = 1;
+        }
+
+        //AdManager.instance.PlayInterstitialAd();
     }
 
     private void SlowdownPause()
