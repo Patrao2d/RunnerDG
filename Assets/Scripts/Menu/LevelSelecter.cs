@@ -77,10 +77,10 @@ public class LevelSelecter : MonoBehaviour
                 SpeedValue.instance.speed = 1;
                 break;             
             case 1:
-                SpeedValue.instance.speed = 1.5f;
+                SpeedValue.instance.speed = 1.3f;
                 break;
             case 2:
-                SpeedValue.instance.speed = 2;
+                SpeedValue.instance.speed = 1.6f;
                 break;
 
         }
