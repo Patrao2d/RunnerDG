@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _instance = this;
-        speed = 1;
         nPlayers = 100;
         playerLeft.text = nPlayers.ToString();
     }
