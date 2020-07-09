@@ -18,6 +18,10 @@ public class Player : MonoBehaviour
     private bool _isSliding;
     public bool isInvulnerable;
     private bool canSwipe = true;
+    [HideInInspector]public bool isShieldActive;
+
+    // GameObjects
+    public GameObject shield;
 
     // Floats
     private float _currentLane = 0;
@@ -212,6 +216,18 @@ public class Player : MonoBehaviour
     private void SwipeCooldown()
     {
         canSwipe = true;
+    }
+
+    public void ActiveShield()
+    {
+        isShieldActive = true;
+        shield.SetActive(true);
+    }
+
+    public void DeActiveShield()
+    {
+        isShieldActive = false;
+        shield.SetActive(false);
     }
 
 

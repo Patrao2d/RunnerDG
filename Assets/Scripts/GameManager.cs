@@ -6,7 +6,6 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public float speed;
     public int nPlayers;
     public TextMeshProUGUI playerLeft;
 
@@ -20,7 +19,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _instance = this;
-        speed = 1;
         nPlayers = 100;
         playerLeft.text = nPlayers.ToString();
     }
@@ -35,7 +33,14 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Delete))
         {
-            PlayerPrefs.DeleteKey("levelAt");
+            //PlayerPrefs.DeleteKey("levelAtNormal");
+            PlayerPrefs.DeleteAll();
+        }
+        if (Input.GetKeyDown(KeyCode.Comma))
+        {
+            PlayerPrefs.SetInt("levelAtNormal", 10);
+            PlayerPrefs.SetInt("levelAtHard", 5);
+            PlayerPrefs.SetInt("levelAtNightmare", 3);
         }
     }
 
@@ -68,8 +73,8 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
     }
 
-    public void IncreaseSpeed()
+    /*public void IncreaseSpeed()
     {
         speed *= 1.01f;
-    }
+    }*/
 }
