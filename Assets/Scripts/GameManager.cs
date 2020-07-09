@@ -6,7 +6,10 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    [Range(0,1000)]
     public int nPlayers;
+    [Range(0,100)]
+    public int deadChance;
     public TextMeshProUGUI playerLeft;
 
     private static GameManager _instance;
@@ -19,7 +22,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _instance = this;
-        nPlayers = 100;
+        //nPlayers = 100;
         playerLeft.text = nPlayers.ToString();
     }
 
@@ -49,21 +52,17 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < nPlayers; i++)
         {
             int __randomNumber = Random.Range(0, 100);
-            if (__randomNumber < 50)
+            if (__randomNumber < deadChance)
             {
                 nPlayers--;
             }
         }
         if (nPlayers == 1)
         {
-            Debug.Log("Win crl !");
-            // Pause
-            // Open win menu
             GameCanvas.instance.WinMenu();
         }
         playerLeft.text = nPlayers.ToString();
-        //Debug.Log(playerLeft.text);
-        //Debug.Log(_nPlayers);
+
     }
 
     public void ResetScene()
