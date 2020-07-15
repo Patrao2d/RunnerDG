@@ -22,9 +22,17 @@ public class MenuManager : MonoBehaviour
         get { return _instance; }
     }
 
+
+
     private void Start()
     {
         _instance = this;
+        //AdManager.instance.PlayBannerAd();
+    }
+
+    private void OnEnable()
+    {
+        AdManager.instance.PlayBannerAd(); 
     }
 
     public void GoToNormal()
@@ -33,7 +41,8 @@ public class MenuManager : MonoBehaviour
         levelSelect.SetActive(true);       
         normal.SetActive(true);
         dificultyLevel = 0;
-        Invoke("InvokeNormal", 0.01f); 
+        Invoke("InvokeNormal", 0.01f);
+        AdManager.instance.HideBannerAd();
     }
 
     public void GoToHard()
@@ -43,6 +52,7 @@ public class MenuManager : MonoBehaviour
         hard.SetActive(true);
         dificultyLevel = 1;
         Invoke("InvokeHard", 0.01f);
+        AdManager.instance.HideBannerAd();
     }
 
     public void GoToNightmare()
@@ -52,6 +62,7 @@ public class MenuManager : MonoBehaviour
         nightmare.SetActive(true);
         dificultyLevel = 2;
         Invoke("InvokeNightmare", 0.01f);
+        AdManager.instance.HideBannerAd();
     }
 
     public void BackToMain()
@@ -61,6 +72,7 @@ public class MenuManager : MonoBehaviour
         normal.SetActive(false);
         hard.SetActive(false);
         nightmare.SetActive(false);
+        AdManager.instance.PlayBannerAd();
     }
 
     public void InvokeNormal()

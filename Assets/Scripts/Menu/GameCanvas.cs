@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameCanvas : MonoBehaviour
 {
@@ -14,8 +15,14 @@ public class GameCanvas : MonoBehaviour
     public int nextSceneLoad;
 
     // Bools
-    private bool _isGamePaused = false;
+    [HideInInspector]
+    public bool isGamePaused = false;
     private bool _endGame =false;
+
+    public Button pauseButton;
+
+    public Sprite pauseImage;
+    public Sprite unpauseImage;
 
     private static GameCanvas _instance;
 
@@ -26,13 +33,12 @@ public class GameCanvas : MonoBehaviour
     void Start()
     {
         _instance = this;
-        nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
+        nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;       
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Time.timeScale);
 
         if (_endGame && Time.timeScale >= 0.1f)
         {
@@ -55,7 +61,7 @@ public class GameCanvas : MonoBehaviour
     {
 
         // ultimo nivel do build index
-        if (SceneManager.GetActiveScene().buildIndex == 2)
+        if (SceneManager.GetActiveScene().buildIndex == 40)
         {
             Debug.Log("yaya");
         }
@@ -101,9 +107,6 @@ public class GameCanvas : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         AdManager.instance.PlayRewardAd();
-        // Force AD
-        // Add shield
-        
     }
 
     public void WinMenu()
@@ -120,17 +123,20 @@ public class GameCanvas : MonoBehaviour
 
     public void PauseButton()
     {
-        if (_isGamePaused)
+        if (isGamePaused)
         {
-            pauseMenu.SetActive(false);
+            pauseMenu.SetActive(false);            
+            pauseButton.GetComponent<Image>().sprite = unpauseImage;
+            DelayedStart.instance.PlayAnim();
+            isGamePaused = !isGamePaused;
             Time.timeScale = 1;
-            _isGamePaused = !_isGamePaused;
         }
         else
-        { 
-            pauseMenu.SetActive(true);
-            Time.timeScale = 0;   
-            _isGamePaused = !_isGamePaused;
+        {
+            Time.timeScale = 0;
+            pauseMenu.SetActive(true);           
+            pauseButton.GetComponent<Image>().sprite = pauseImage;         
+            isGamePaused = !isGamePaused;
         }
     }
 

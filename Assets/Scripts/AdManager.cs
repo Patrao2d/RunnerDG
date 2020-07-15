@@ -8,6 +8,7 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
 
     private string interstitialAd = "video";
     private string rewardedVideoAd = "rewardedVideo";
+    private string bannerAd = "banner";
 
     public bool isTargetPlayStore;
     public bool isTestAd;
@@ -68,7 +69,20 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
             return;
         Advertisement.Show(rewardedVideoAd);
         Player.instance.ActiveShield();
-        // Stuff to give shield
+    }
+
+    public void PlayBannerAd()
+    {
+        if (!Advertisement.IsReady(bannerAd))
+            return;
+
+        Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
+        Advertisement.Banner.Show(bannerAd);
+    }
+
+    public void HideBannerAd()
+    {
+        Advertisement.Banner.Hide();
     }
 
     public void OnUnityAdsReady(string placementId)

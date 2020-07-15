@@ -24,8 +24,8 @@ public class Obstacle : MonoBehaviour
         {
             //Debug.Log("sup");
             _canCollide = false;
-            StartCoroutine(CollisionCooldown());
             GameManager.instance.countPlayersAlive();
+            StartCoroutine(CollisionCooldown());
         }
     }
 
