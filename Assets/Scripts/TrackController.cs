@@ -22,9 +22,9 @@ public class TrackController : MonoBehaviour
         _currentTrack = Track[0];
         _lastTrack = Track[9];
 
-        Debug.Log(_currentTrack);
-        Debug.Log(_lastTrack);
-        Debug.Log(_currentTrackValue);
+        //Debug.Log(_currentTrack);
+        //Debug.Log(_lastTrack);
+        //Debug.Log(_currentTrackValue);
     }
 
     // Update is called once per frame
@@ -48,18 +48,18 @@ public class TrackController : MonoBehaviour
         {
             _currentTrack = Track[0];
             _currentTrackValue = 0;
-            Debug.Log("current value: " + _currentTrackValue);
+            //Debug.Log("current value: " + _currentTrackValue);
         }
         else
         {
             _currentTrackValue++;
             _currentTrack = Track[_currentTrackValue];
             //Debug.Log("aumentou");
-            Debug.Log("current value: " + _currentTrackValue);
+            //Debug.Log("current value: " + _currentTrackValue);
         }
 
-        Debug.Log("Current track :" + _currentTrack);
-        Debug.Log("Last Track :" + _lastTrack);
+        //Debug.Log("Current track :" + _currentTrack);
+        //Debug.Log("Last Track :" + _lastTrack);
 
     }
 

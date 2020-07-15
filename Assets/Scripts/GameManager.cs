@@ -11,6 +11,11 @@ public class GameManager : MonoBehaviour
     [Range(0,100)]
     public int deadChance;
     public TextMeshProUGUI playerLeft;
+    public TextMeshProUGUI timerText;
+
+    private char splitter = ':';
+    public float timer;
+    private bool _active;
 
     private static GameManager _instance;
 
@@ -22,8 +27,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _instance = this;
-        //nPlayers = 100;
         playerLeft.text = nPlayers.ToString();
+        _active = true;
     }
 
     // Update is called once per frame
@@ -45,6 +50,13 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("levelAtHard", 5);
             PlayerPrefs.SetInt("levelAtNightmare", 3);
         }
+
+        if (_active)
+        {
+            timer += Time.deltaTime;
+            UpdateTimer();
+        }
+
     }
 
     public void countPlayersAlive()
@@ -60,6 +72,7 @@ public class GameManager : MonoBehaviour
         if (nPlayers == 1)
         {
             GameCanvas.instance.WinMenu();
+            Player.instance.ChangeVulnerability();
         }
         playerLeft.text = nPlayers.ToString();
 
@@ -72,8 +85,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
     }
 
-    /*public void IncreaseSpeed()
+    private void UpdateTimer()
     {
-        speed *= 1.01f;
-    }*/
+        float __seconds = (timer % 60);
+        float __minutes = ((int)timer / 60) % 60;
+        timerText.text = __minutes.ToString("00") + splitter + __seconds.ToString("00");
+    }
+
 }
