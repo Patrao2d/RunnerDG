@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7620656833273613749}
   - component: {fileID: 2182443050330522883}
   - component: {fileID: 6654984017160420975}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: AllLanesSlide (2)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,10 +119,9 @@ GameObject:
   - component: {fileID: 121128818031176265}
   - component: {fileID: 5464807348429518037}
   - component: {fileID: 8677304281954222556}
-  - component: {fileID: 490532588956443566}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: AllLanesSlide
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -213,18 +212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ebc83fbe6d9b942813b6ccebc6aee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &490532588956443566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2248810877789892123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d4356a3732e9624cb4a0ee6fa56d5d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8064123870554074362
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,9 +225,9 @@ GameObject:
   - component: {fileID: 5502094565342117044}
   - component: {fileID: 5089919128194689881}
   - component: {fileID: 6134328716015628859}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: AllLanesSlide (1)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -340,10 +327,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 231591589787854392}
-  - component: {fileID: 336662131711497819}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: AllLanesSlide
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -365,15 +351,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &336662131711497819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8475013808815081369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d4356a3732e9624cb4a0ee6fa56d5d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

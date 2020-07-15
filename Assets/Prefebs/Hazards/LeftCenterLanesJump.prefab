@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 699092798907326779}
   - component: {fileID: 4885031629690372007}
   - component: {fileID: 8103666176572492462}
-  - component: {fileID: 7156641019965277653}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: LeftCenterLanesJump
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,18 +106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ebc83fbe6d9b942813b6ccebc6aee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7156641019965277653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1668753686217319785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d4356a3732e9624cb4a0ee6fa56d5d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8179570562798348852
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,9 +119,9 @@ GameObject:
   - component: {fileID: 9091338497529863747}
   - component: {fileID: 7869878207335790952}
   - component: {fileID: 6067546736583210655}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: LeftCenterLanesJump (1)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,10 +221,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 804803359003241802}
-  - component: {fileID: -8010445976151320069}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: LeftCenterLanesJump
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -258,15 +244,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8010445976151320069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9043429395160370411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d4356a3732e9624cb4a0ee6fa56d5d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

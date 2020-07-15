@@ -6,17 +6,6 @@ public class Obstacle : MonoBehaviour
 {
     private bool _canCollide = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //Debug.Log(_canCollide);   
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
