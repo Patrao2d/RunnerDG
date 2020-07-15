@@ -6,6 +6,9 @@ using UnityEngine;
 public class SpeedValue : MonoBehaviour
 {
     public float speed;
+    [HideInInspector]
+    public float savedSpeed;
+    private bool _isOnCooldown = false;
 
     private static SpeedValue _instance;
 
@@ -37,4 +40,40 @@ public class SpeedValue : MonoBehaviour
         _instance = this;
     }
 
+    private void Update()
+    {
+        Debug.Log("Saves speed is" + savedSpeed);
+    }
+
+    public void IncreaseSpeed()
+    {
+        if (_isOnCooldown == true)
+        {
+            return;
+        }
+        _isOnCooldown = true;
+        savedSpeed = speed;
+        speed *= 1.3f;
+        Invoke("BackToNormalSpeed", 5f);
+        _isOnCooldown = false;
+    }
+
+    public void DecreaseSpeed()
+    {
+        if (_isOnCooldown == true)
+        {
+            return;
+        }
+        _isOnCooldown = true;
+        savedSpeed = speed;
+        speed /= 1.3f;
+        Invoke("BackToNormalSpeed", 5f);
+        _isOnCooldown = false;
+    }
+
+
+    private void BackToNormalSpeed()
+    {
+        speed = savedSpeed;
+    }
 }

@@ -63,7 +63,7 @@ public class Track : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("bateu");
+            //Debug.Log("bateu");
             StartCoroutine(TrackCooldown());
         }
     }

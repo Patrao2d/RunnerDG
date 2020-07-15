@@ -60,6 +60,11 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (GameCanvas.instance.isGamePaused)
+        {
+            return;
+        }
+
         DetectSwipe();
 
         //Debug.Log(isInvulnerable);
@@ -70,7 +75,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.I))
         {
-            isInvulnerable = !isInvulnerable;
+            ChangeVulnerability();
         }
 
         if (Input.GetKeyDown(KeyCode.S))
@@ -141,7 +146,7 @@ public class Player : MonoBehaviour
 
     public void DetectSwipe()
     {
-        if (Input.touches.Length > 0 && canSwipe == true)
+        if (Input.touches.Length > 0)
         {
             Touch t = Input.GetTouch(0);
 
@@ -150,10 +155,10 @@ public class Player : MonoBehaviour
                 firstPressPos = new Vector2(t.position.x, t.position.y);
             } 
 
-            if (t.phase == TouchPhase.Moved)
+            else if (t.phase == TouchPhase.Moved && canSwipe == true)
             {
                 secondPressPos = new Vector2(t.position.x, t.position.y);
-                currentSwipe = new Vector3(secondPressPos.x - firstPressPos.x, secondPressPos.y - firstPressPos.y);
+                currentSwipe = new Vector2((secondPressPos.x) - (firstPressPos.x), (secondPressPos.y) - (firstPressPos.y));
                 // Make sure it was a legit swipe, not a tap
                 if (currentSwipe.magnitude < minSwipeLength)
                 {
@@ -162,7 +167,6 @@ public class Player : MonoBehaviour
                 }
 
                 currentSwipe.Normalize();
-
                 
                 if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f && !_onGround) 
                 {
@@ -170,7 +174,7 @@ public class Player : MonoBehaviour
                     Debug.Log("SWIPE UP");
                     _rb.AddForce(0, 1500f * Time.fixedDeltaTime, 0, ForceMode.Impulse);
                     canSwipe = false;
-                    Invoke("SwipeCooldown", 0.1f);
+                    //Invoke("SwipeCooldown", 0.1f);
                 }
                 else if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f) 
                 {
@@ -187,7 +191,7 @@ public class Player : MonoBehaviour
                         _rb.AddForce(0, -1000f * Time.fixedDeltaTime, 0, ForceMode.Impulse);
                     }
                     canSwipe = false;
-                    Invoke("SwipeCooldown", 0.1f);
+                    //Invoke("SwipeCooldown", 0.1f);
                 }
                 else if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f) 
                 {
@@ -195,7 +199,7 @@ public class Player : MonoBehaviour
                     Debug.Log("SWIPE LEFT");
                     ChangeLane(-1.5f);
                     canSwipe = false;
-                    Invoke("SwipeCooldown", 0.2f);
+                    //Invoke("SwipeCooldown", 0.2f);
                 }
                 else if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f) 
                 {
@@ -203,8 +207,13 @@ public class Player : MonoBehaviour
                     Debug.Log("SWIPE RIGHT");
                     ChangeLane(1.5f);
                     canSwipe = false;
-                    Invoke("SwipeCooldown", 0.2f);
+                    //Invoke("SwipeCooldown", 0.2f);
                 }
+            }
+
+            else if (t.phase == TouchPhase.Ended)
+            {
+                canSwipe = true;
             }
         }
         else
@@ -230,5 +239,8 @@ public class Player : MonoBehaviour
         shield.SetActive(false);
     }
 
-
+    public void ChangeVulnerability()
+    {
+        isInvulnerable = !isInvulnerable;
+    }
 }

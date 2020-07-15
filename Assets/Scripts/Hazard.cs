@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class Hazard : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -23,16 +18,17 @@ public class Hazard : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            if (!Player.instance.isShieldActive)
+            if (Player.instance.isShieldActive)
             {
-                Debug.Log("rip");
-                //GameManager.instance.ResetScene();
-                GameCanvas.instance.LoseMenu();
+                return;
             }
-            else
-            {
-                Player.instance.DeActiveShield();
-            }
+            GameCanvas.instance.LoseMenu();
+        }
+        if (other.CompareTag("Shield"))
+        {
+            // Voltar aqui que isto é má logica
+            Shield.instance.ExpandShield();
+            Destroy(gameObject);           
         }
     }
 
