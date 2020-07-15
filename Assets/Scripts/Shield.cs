@@ -47,6 +47,7 @@ public class Shield : MonoBehaviour
 
     public void DeActiveShield()
     {
-       Player.instance.DeActiveShield();
+        Player.instance.DeActiveShield();
+        transform.localScale = new Vector3(1.75f, 1.75f, 1.75f);
     }
 }

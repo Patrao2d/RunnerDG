@@ -14,10 +14,9 @@ GameObject:
   - component: {fileID: 3682914099525102367}
   - component: {fileID: 8747368768329676163}
   - component: {fileID: 5393617584718119050}
-  - component: {fileID: 8818119727732170332}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SmallMidSwipe
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,18 +112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ebc83fbe6d9b942813b6ccebc6aee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8818119727732170332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3280697836282605389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d4356a3732e9624cb4a0ee6fa56d5d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5129403098271516367
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,10 +121,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3568196200588044142}
-  - component: {fileID: 1629156377988177432}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SmallMidSwipe
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,18 +143,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1629156377988177432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5129403098271516367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d4356a3732e9624cb4a0ee6fa56d5d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &827127730823387557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -249,12 +223,12 @@ PrefabInstance:
     - target: {fileID: 4762469394101882370, guid: 76e4c44de5f17444f8f74b186133bf44,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4762469394101882370, guid: 76e4c44de5f17444f8f74b186133bf44,
         type: 3}
       propertyPath: m_TagString
-      value: Obstacle
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76e4c44de5f17444f8f74b186133bf44, type: 3}

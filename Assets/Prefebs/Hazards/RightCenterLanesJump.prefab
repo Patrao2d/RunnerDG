@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 3262544036752260965}
   - component: {fileID: 4493293073628944462}
   - component: {fileID: 529259998504114105}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: RightCenterLanesJump (1)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,10 +115,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6361108876743134316}
-  - component: {fileID: -6824457767683013330}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: RightCenterLanesJump
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,18 +138,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-6824457767683013330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3381281555235876301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d4356a3732e9624cb4a0ee6fa56d5d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4919219510175417423
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,10 +151,9 @@ GameObject:
   - component: {fileID: 6548132172150177821}
   - component: {fileID: 1199946330928832129}
   - component: {fileID: 2529351482999155592}
-  - component: {fileID: 6816461441090610162}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: RightCenterLanesJump
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -256,17 +242,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8ebc83fbe6d9b942813b6ccebc6aee4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6816461441090610162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4919219510175417423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d4356a3732e9624cb4a0ee6fa56d5d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
