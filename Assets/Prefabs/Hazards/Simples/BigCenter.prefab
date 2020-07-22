@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 404394117888820246}
   - component: {fileID: 4738489469933704705}
   - component: {fileID: 7191946210230299741}
+  - component: {fileID: 434014947269091093}
   m_Layer: 9
   m_Name: BigCenterCube
   m_TagString: Obstacle
@@ -106,6 +107,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ebc83fbe6d9b942813b6ccebc6aee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &434014947269091093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3037864804373494830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d4356a3732e9624cb4a0ee6fa56d5d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5812945998836312533
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,7 +128,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 560613815434772346}
-  - component: {fileID: 9163475923508073487}
   m_Layer: 9
   m_Name: BigCenter
   m_TagString: Obstacle
@@ -138,15 +150,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9163475923508073487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5812945998836312533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d4356a3732e9624cb4a0ee6fa56d5d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

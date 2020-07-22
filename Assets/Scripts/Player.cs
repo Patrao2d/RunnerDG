@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     // Floats
     private float _currentLane = 0;
     public float laneSpeed;
-    public float minSwipeLength = 75f;
+    public float minSwipeLength = 7f;
 
     // RigidBodys
     private Rigidbody _rb;

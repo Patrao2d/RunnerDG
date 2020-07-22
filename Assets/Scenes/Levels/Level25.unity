@@ -1490,6 +1490,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8644695327147642404, guid: e129898bb4243d84ab23754b35a9b518,
+        type: 3}
+      propertyPath: CurveOrigin
+      value: 
+      objectReference: {fileID: 1873460254}
+    - target: {fileID: 8644695327147642404, guid: e129898bb4243d84ab23754b35a9b518,
+        type: 3}
+      propertyPath: newX
+      value: 6.3015614
+      objectReference: {fileID: 0}
+    - target: {fileID: 8644695327147642404, guid: e129898bb4243d84ab23754b35a9b518,
+        type: 3}
+      propertyPath: newY
+      value: -4.559863
+      objectReference: {fileID: 0}
     - target: {fileID: 8644695327147642405, guid: e129898bb4243d84ab23754b35a9b518,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1976,12 +1991,12 @@ PrefabInstance:
     - target: {fileID: 3569070512768811858, guid: 246c8a5481e312d44aaf48cf9e2d692c,
         type: 3}
       propertyPath: numberOfObstacles.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3569070512768811858, guid: 246c8a5481e312d44aaf48cf9e2d692c,
         type: 3}
       propertyPath: numberOfObstacles.y
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3569070513379663981, guid: 246c8a5481e312d44aaf48cf9e2d692c,
         type: 3}
@@ -2009,12 +2024,12 @@ PrefabInstance:
     - target: {fileID: 3569070513379663981, guid: 246c8a5481e312d44aaf48cf9e2d692c,
         type: 3}
       propertyPath: numberOfObstacles.x
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3569070513379663981, guid: 246c8a5481e312d44aaf48cf9e2d692c,
         type: 3}
       propertyPath: numberOfObstacles.y
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3569070513379663981, guid: 246c8a5481e312d44aaf48cf9e2d692c,
         type: 3}
@@ -2384,6 +2399,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849384389}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1873460254 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3283819210843978779, guid: a3033d0963090ca47abe91af01c80ac4,
+    type: 3}
+  m_PrefabInstance: {fileID: 818745771}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1986521654
 GameObject:
   m_ObjectHideFlags: 0

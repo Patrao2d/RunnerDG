@@ -142,7 +142,7 @@ public class GameCanvas : MonoBehaviour
 
     public void CallNextLevelAd()
     {
-        int __chanceToAd = Random.Range(1, 3);
+        int __chanceToAd = Random.Range(1, 10);
         if (__chanceToAd == 1)
         {
             AdManager.instance.PlayInterstitialAd();
