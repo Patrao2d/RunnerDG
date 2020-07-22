@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3283819210843978781}
   - component: {fileID: 3283819210843978778}
   - component: {fileID: 3283819210843978777}
+  - component: {fileID: 5281501304633712476}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -93,7 +94,7 @@ Skybox:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3283819210843978782}
   m_Enabled: 1
-  m_CustomSkybox: {fileID: 2100000, guid: d2f24bfdb0a758e41813bbc7ae4f978f, type: 2}
+  m_CustomSkybox: {fileID: 2100000, guid: 32be28fd0faea1641aff7ddbf194bb6a, type: 2}
 --- !u!114 &3283819210843978777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,3 +111,19 @@ MonoBehaviour:
   yMax: 3
   smoothSpeed: 4
   target: {fileID: 0}
+--- !u!114 &5281501304633712476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3283819210843978782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 985ca123246cb5547bf9ed1d69e6d4fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTransform: {fileID: 3283819210843978779}
+  shakeDuration: 0
+  shakeAmount: 0.2
+  decreaseFactor: 1

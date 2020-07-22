@@ -628,28 +628,6 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1 &551678110 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3283819210843978782, guid: a3033d0963090ca47abe91af01c80ac4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1260829062}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &551678111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 551678110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 985ca123246cb5547bf9ed1d69e6d4fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camTransform: {fileID: 0}
-  shakeDuration: 0
-  shakeAmount: 0.7
-  decreaseFactor: 1
 --- !u!4 &586549683 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3569070512445508244, guid: 246c8a5481e312d44aaf48cf9e2d692c,

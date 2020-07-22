@@ -61,7 +61,7 @@ public class GameCanvas : MonoBehaviour
     {
 
         // ultimo nivel do build index
-        if (SceneManager.GetActiveScene().buildIndex == 40)
+        if (SceneManager.GetActiveScene().buildIndex == 36)
         {
             Debug.Log("yaya");
         }

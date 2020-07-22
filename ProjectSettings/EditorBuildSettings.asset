@@ -9,15 +9,111 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 4f115cc277ba46946aca18523ea5ab92
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/Scenes/testlvl.unity
-    guid: e6e90f7ea058b6046bedea687407341b
-  - enabled: 1
     path: Assets/Scenes/Levels/Level1.unity
     guid: 01f65108cbe030541bb7a9b55440b99c
   - enabled: 1
     path: Assets/Scenes/Levels/Level2.unity
     guid: f2bd45aa44f07744d8738f49fe83d111
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level3.unity
+    guid: e0e78f498efd39f45bd525e9808f8cbf
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level4.unity
+    guid: 9c9f67dc0eea6a74ba5ff8f687365c65
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level5.unity
+    guid: cf02ad05300c0e142baf57701e39e624
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level6.unity
+    guid: 9ea3504ddaf3fe04397d947186928423
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level7.unity
+    guid: 60c2ef427626b0e428d7d1b0c0b103b9
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level8.unity
+    guid: d80f4a2bf6cdcc046903e54f58ff3556
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level9.unity
+    guid: 7b20d8bcbc936454b96f916b8934960a
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level10.unity
+    guid: de0ce365cd9ec6c43ac97c1cdff96406
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level11.unity
+    guid: 8381fc70b1083b447a2ba8ece141d951
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level12.unity
+    guid: f857258ace021ed4c91c54e6076409dd
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level13.unity
+    guid: e27fcb7e497b5e0489c417f10d983817
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level14.unity
+    guid: 99686e393feb4d844a66ca0b7ce2408d
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level15.unity
+    guid: ea6138dc3e55a064da11ce7d117a8f84
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level16.unity
+    guid: 1fab26656339b7b448e78a617abae8dd
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level17.unity
+    guid: e3de5e347fe05504ba321e6afa986066
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level18.unity
+    guid: ff1758727d0e0184a99916a5f5e9e646
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level19.unity
+    guid: 7bb9fce9c21dae543bba1589d34996a6
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level20.unity
+    guid: 0e10f054f47b9b445ab053c81b5869a4
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level21.unity
+    guid: 53d5a26299ab7204993c8df675ae9c9b
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level22.unity
+    guid: 5aca2ed2a9ff77f40922bf537603bc28
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level23.unity
+    guid: c94ae3c382ea79c4ab2cc7e0541f2459
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level24.unity
+    guid: 42e718429f6d43b4695b736b13c716dd
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level25.unity
+    guid: 6d434789d79aa7f4c93c105d8930b54f
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level26.unity
+    guid: 305c7a52bdc4b334f9bb051734e15028
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level27.unity
+    guid: e259afaed2ede7144808aba5e5264be1
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level28.unity
+    guid: 41f135d55a0c1a14d901965da43e2409
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level29.unity
+    guid: 1be828db1a96c1845bd17ec6ad436029
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level30.unity
+    guid: 3e6f819f6197f6c42ad4e82f6c23f3e9
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level31.unity
+    guid: 876512b2257776548a23ad9858c08d16
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level32.unity
+    guid: 5bea4b43ff9d37048964701b53efd577
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level33.unity
+    guid: d27524b4c37be534694bd7845ba53b92
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level34.unity
+    guid: ece88857497f4524ea83f52407720d9c
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level35.unity
+    guid: b62d36bdcfce6d54799b5f99e08c081c
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level36.unity
+    guid: b52e60021b8781e4a8b788ce5ddadf99
   m_configObjects: {}
