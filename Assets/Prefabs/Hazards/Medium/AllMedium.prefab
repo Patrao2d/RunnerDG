@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4363242620754707635}
   - component: {fileID: 8706468892605372068}
   - component: {fileID: 6547957590005312760}
+  - component: {fileID: 387664386910489584}
   m_Layer: 9
   m_Name: AllMediumCube
   m_TagString: Obstacle
@@ -104,6 +105,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8ebc83fbe6d9b942813b6ccebc6aee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &387664386910489584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385210604708396171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d4356a3732e9624cb4a0ee6fa56d5d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7618493887027489136
