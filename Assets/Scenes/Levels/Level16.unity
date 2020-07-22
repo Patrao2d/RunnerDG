@@ -560,12 +560,12 @@ PrefabInstance:
     - target: {fileID: 3569070512768811858, guid: 246c8a5481e312d44aaf48cf9e2d692c,
         type: 3}
       propertyPath: numberOfObstacles.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3569070512768811858, guid: 246c8a5481e312d44aaf48cf9e2d692c,
         type: 3}
       propertyPath: numberOfObstacles.y
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3569070513379663981, guid: 246c8a5481e312d44aaf48cf9e2d692c,
         type: 3}
@@ -722,6 +722,12 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 246c8a5481e312d44aaf48cf9e2d692c, type: 3}
+--- !u!4 &232240448 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3283819210843978779, guid: a3033d0963090ca47abe91af01c80ac4,
+    type: 3}
+  m_PrefabInstance: {fileID: 566905077}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &259992144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -992,11 +998,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 499465999}
-    - target: {fileID: 3283819210843978778, guid: a3033d0963090ca47abe91af01c80ac4,
-        type: 3}
-      propertyPath: m_CustomSkybox
-      value: 
-      objectReference: {fileID: 2100000, guid: 32be28fd0faea1641aff7ddbf194bb6a, type: 2}
     - target: {fileID: 3283819210843978779, guid: a3033d0963090ca47abe91af01c80ac4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1059,28 +1060,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3033d0963090ca47abe91af01c80ac4, type: 3}
---- !u!1 &729947065 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3283819210843978782, guid: a3033d0963090ca47abe91af01c80ac4,
-    type: 3}
-  m_PrefabInstance: {fileID: 566905077}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &729947066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729947065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 985ca123246cb5547bf9ed1d69e6d4fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camTransform: {fileID: 0}
-  shakeDuration: 0
-  shakeAmount: 0.7
-  decreaseFactor: 1
 --- !u!4 &883288366 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3569070512445508244, guid: 246c8a5481e312d44aaf48cf9e2d692c,
@@ -2082,6 +2061,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8644695327147642404, guid: e129898bb4243d84ab23754b35a9b518,
+        type: 3}
+      propertyPath: CurveOrigin
+      value: 
+      objectReference: {fileID: 232240448}
     - target: {fileID: 8644695327147642405, guid: e129898bb4243d84ab23754b35a9b518,
         type: 3}
       propertyPath: m_LocalPosition.x
