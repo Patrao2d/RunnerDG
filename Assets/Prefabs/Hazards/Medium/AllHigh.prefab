@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2805037306470776308}
   - component: {fileID: 7112225935784292323}
   - component: {fileID: 4665483086754190783}
+  - component: {fileID: 1999832882264327558}
   m_Layer: 9
   m_Name: AllHighCube
   m_TagString: Obstacle
@@ -104,6 +105,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8ebc83fbe6d9b942813b6ccebc6aee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1999832882264327558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673680871667664332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d4356a3732e9624cb4a0ee6fa56d5d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8348116015317995575
