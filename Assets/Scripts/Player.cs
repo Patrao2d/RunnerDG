@@ -174,7 +174,6 @@ public class Player : MonoBehaviour
                     Debug.Log("SWIPE UP");
                     _rb.AddForce(0, 1500f * Time.fixedDeltaTime, 0, ForceMode.Impulse);
                     canSwipe = false;
-                    //Invoke("SwipeCooldown", 0.1f);
                 }
                 else if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f) 
                 {
@@ -191,7 +190,6 @@ public class Player : MonoBehaviour
                         _rb.AddForce(0, -1000f * Time.fixedDeltaTime, 0, ForceMode.Impulse);
                     }
                     canSwipe = false;
-                    //Invoke("SwipeCooldown", 0.1f);
                 }
                 else if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f) 
                 {
@@ -199,7 +197,6 @@ public class Player : MonoBehaviour
                     Debug.Log("SWIPE LEFT");
                     ChangeLane(-1.5f);
                     canSwipe = false;
-                    //Invoke("SwipeCooldown", 0.2f);
                 }
                 else if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f) 
                 {
@@ -207,7 +204,6 @@ public class Player : MonoBehaviour
                     Debug.Log("SWIPE RIGHT");
                     ChangeLane(1.5f);
                     canSwipe = false;
-                    //Invoke("SwipeCooldown", 0.2f);
                 }
             }
 
@@ -220,11 +216,6 @@ public class Player : MonoBehaviour
         {
             swipeDirection = _Swipe.None;
         }
-    }
-
-    private void SwipeCooldown()
-    {
-        canSwipe = true;
     }
 
     public void ActiveShield()
