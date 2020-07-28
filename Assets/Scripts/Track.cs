@@ -21,10 +21,18 @@ public class Track : MonoBehaviour
 
     public Vector3 speed;
 
+    private static Track _instance;
+
+    public static Track instance
+    {
+        get { return _instance; }
+    }
+
     void Start()
     {
         //int newNumberOfObstacles = (int)Random.Range(numberOfObstacles.x, numberOfObstacles.y);
         InstantiateObstacles();
+        _instance = this;
     }
 
     // Update is called once per frame
@@ -98,5 +106,15 @@ public class Track : MonoBehaviour
 
         PositionateObstacles();
         //GameManager.instance.IncreaseSpeed();
+    }
+
+    public void ClearTrack()
+    {
+        foreach (var obstacle in newObstacles)
+        {
+            Debug.Log(obstacle);
+            Destroy(obstacle.gameObject);
+        }
+        newObstacles.Clear();
     }
 }

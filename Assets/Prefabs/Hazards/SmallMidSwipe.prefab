@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3682914099525102367}
   - component: {fileID: 8747368768329676163}
   - component: {fileID: 5393617584718119050}
+  - component: {fileID: 8470802909076599174}
   m_Layer: 0
   m_Name: SmallMidSwipe
   m_TagString: Untagged
@@ -110,6 +111,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8ebc83fbe6d9b942813b6ccebc6aee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8470802909076599174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3280697836282605389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d4356a3732e9624cb4a0ee6fa56d5d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5129403098271516367
@@ -209,6 +222,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360739580013465219, guid: 76e4c44de5f17444f8f74b186133bf44,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4259160750712882584, guid: 76e4c44de5f17444f8f74b186133bf44,
         type: 3}

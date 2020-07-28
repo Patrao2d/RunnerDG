@@ -23,10 +23,10 @@ public class Shield : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Player.instance.isShieldActive)
+        /*if (Player.instance.isShieldActive)
         {
             transform.Rotate(SpeedValue.instance.speed * 6, 0, 0);
-        }
+        }*/
     }
 
     public void ExpandShield()

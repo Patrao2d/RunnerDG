@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2855478273150142341}
   - component: {fileID: 7915077498523588889}
   - component: {fileID: 6801875925502913552}
+  - component: {fileID: 5525492033547660316}
   m_Layer: 0
   m_Name: SmallLeftSwipe
   m_TagString: Untagged
@@ -104,6 +105,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8ebc83fbe6d9b942813b6ccebc6aee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5525492033547660316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4124036998455952343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d4356a3732e9624cb4a0ee6fa56d5d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6022342329888565845
