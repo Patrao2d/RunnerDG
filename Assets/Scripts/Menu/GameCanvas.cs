@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameCanvas : MonoBehaviour
 {
@@ -24,6 +25,9 @@ public class GameCanvas : MonoBehaviour
     public Sprite pauseImage;
     public Sprite unpauseImage;
 
+    public TextMeshProUGUI levelText;
+    private int currentLevel;
+
     private static GameCanvas _instance;
 
     public static GameCanvas instance
@@ -33,7 +37,9 @@ public class GameCanvas : MonoBehaviour
     void Start()
     {
         _instance = this;
-        nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;       
+        nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
+        currentLevel = SceneManager.GetActiveScene().buildIndex;
+        levelText.text = "Level: " + currentLevel;
     }
 
     // Update is called once per frame
@@ -111,8 +117,9 @@ public class GameCanvas : MonoBehaviour
 
     public void WinMenu()
     {
+        TrackController.instance.ClearAllTracks();
         winMenu.SetActive(true);
-        SlowdownPause();       
+        SlowdownPause();
     }
 
     public void LoseMenu()

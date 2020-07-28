@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrackController : MonoBehaviour
 {
-    public GameObject[] Track;
+    public GameObject[] Tracks;
     private GameObject _currentTrack;
     private GameObject _lastTrack;
     private int _currentTrackValue = 0;
@@ -19,8 +19,8 @@ public class TrackController : MonoBehaviour
     void Start()
     {
         _instance = this;
-        _currentTrack = Track[0];
-        _lastTrack = Track[9];
+        _currentTrack = Tracks[0];
+        _lastTrack = Tracks[9];
 
         //Debug.Log(_currentTrack);
         //Debug.Log(_lastTrack);
@@ -44,22 +44,31 @@ public class TrackController : MonoBehaviour
         _lastTrack = _currentTrack;
 
 
-        if (_currentTrack == Track[9])
+        if (_currentTrack == Tracks[9])
         {
-            _currentTrack = Track[0];
+            _currentTrack = Tracks[0];
             _currentTrackValue = 0;
             //Debug.Log("current value: " + _currentTrackValue);
         }
         else
         {
             _currentTrackValue++;
-            _currentTrack = Track[_currentTrackValue];
+            _currentTrack = Tracks[_currentTrackValue];
             //Debug.Log("aumentou");
             //Debug.Log("current value: " + _currentTrackValue);
         }
 
         //Debug.Log("Current track :" + _currentTrack);
         //Debug.Log("Last Track :" + _lastTrack);
+
+    }
+
+    public void ClearAllTracks()
+    {
+        foreach (var __track in Tracks)
+        {
+            __track.GetComponent<Track>().ClearTrack();
+        }
 
     }
 

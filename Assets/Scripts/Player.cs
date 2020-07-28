@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (GameCanvas.instance.isGamePaused)
+        if (GameCanvas.instance.isGamePaused || Time.timeScale < 0.9f)
         {
             return;
         }
@@ -124,7 +124,6 @@ public class Player : MonoBehaviour
         //Debug.Log(_onGround);
         Vector3 __targetPosition = new Vector3(_verticalTargetPosition.x, transform.position.y, transform.position.z);
         transform.position = Vector3.MoveTowards(transform.position, __targetPosition, laneSpeed * Time.deltaTime);
-
     }
 
     private IEnumerator Sliding()
