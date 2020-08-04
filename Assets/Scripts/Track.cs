@@ -112,7 +112,6 @@ public class Track : MonoBehaviour
     {
         foreach (var obstacle in newObstacles)
         {
-            Debug.Log(obstacle);
             Destroy(obstacle.gameObject);
         }
         newObstacles.Clear();

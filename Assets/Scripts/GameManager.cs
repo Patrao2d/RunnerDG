@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
         _instance = this;
         playerLeft.text = nPlayers.ToString();
         _active = true;
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame

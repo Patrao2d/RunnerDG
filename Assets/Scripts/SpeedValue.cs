@@ -42,7 +42,6 @@ public class SpeedValue : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Saves speed is" + savedSpeed);
     }
 
     public void IncreaseSpeed()

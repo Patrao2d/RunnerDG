@@ -41,7 +41,6 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
     {
         _instance = this;
         Advertisement.AddListener(this);
-        Debug.Log(isTargetPlayStore);
         StartAd();
     }
 
