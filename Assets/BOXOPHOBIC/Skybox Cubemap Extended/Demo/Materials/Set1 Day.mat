@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Set1 Day
   m_Shader: {fileID: 4800000, guid: 82881a2d011b0964696411c822cdd00b, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _ENABLEROTATION_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -67,7 +67,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnableFog: 0
-    - _EnableRotation: 0
+    - _EnableRotation: 1
     - _Exposure: 1
     - _FogFill: 0.5
     - _FogHeight: 1
@@ -83,8 +83,8 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Rotation: 0
-    - _RotationSpeed: 1
-    - _Rotationn: 1
+    - _RotationSpeed: 3
+    - _Rotationn: 311.5
     - _SkyboxExtended: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/Materials/DeformationTexture.mat.meta
 guid: 35c0532022607fa42a89c5c695aecf8b
+=======
+<<<<<<< HEAD:Assets/Animator/Fade/FadeIn.anim.meta
+guid: 590159fa21d7e0d4cbb023ddc2c840b8
+>>>>>>> master
 NativeFormatImporter:
 =======
 guid: 938d9248e9f0f574cb40a5bbca66dae4

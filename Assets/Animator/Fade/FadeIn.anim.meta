@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Animator/Fade/FadeIn.anim.meta
 guid: 590159fa21d7e0d4cbb023ddc2c840b8
 NativeFormatImporter:
+=======
+guid: 938d9248e9f0f574cb40a5bbca66dae4
+folderAsset: yes
+DefaultImporter:
+>>>>>>> master:Assets/BOXOPHOBIC/Skybox Cubemap Extended/Demo/Post.meta
   externalObjects: {}
   mainObjectFileID: 0
   userData: 
