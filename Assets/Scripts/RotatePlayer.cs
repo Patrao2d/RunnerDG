@@ -6,6 +6,6 @@ public class RotatePlayer : MonoBehaviour
 {
     private void FixedUpdate()
     {
-        transform.Rotate(SpeedValue.instance.speed * 8, 0, 0);
+        transform.Rotate(SpeedValue.instance.speed * 11, 0, 0);
     }
 }
