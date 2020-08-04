@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scenes/Levels/Level19.meta
 guid: a0835010905bc714ba8dddbd134d3fc2
 folderAsset: yes
 DefaultImporter:
+=======
+guid: 0c6f0c325d823fa428754b3b959600e4
+PrefabImporter:
+>>>>>>> master:Assets/Prefabs/Speed Effect.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

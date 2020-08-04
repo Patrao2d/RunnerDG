@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     // Floats
     private float _currentLane = 0;
     public float laneSpeed;
-    public float minSwipeLength = 7f;
+    public float minSwipeLength = 5f;
 
     // RigidBodys
     private Rigidbody _rb;
@@ -152,29 +152,30 @@ public class Player : MonoBehaviour
             if (t.phase == TouchPhase.Began)
             {
                 firstPressPos = new Vector2(t.position.x, t.position.y);
-            } 
+            }
 
             else if (t.phase == TouchPhase.Moved && canSwipe == true)
             {
                 secondPressPos = new Vector2(t.position.x, t.position.y);
                 currentSwipe = new Vector2((secondPressPos.x) - (firstPressPos.x), (secondPressPos.y) - (firstPressPos.y));
+
                 // Make sure it was a legit swipe, not a tap
-                if (currentSwipe.magnitude < minSwipeLength)
+                /*if (currentSwipe.magnitude > minSwipeLength)
                 {
-                    swipeDirection = _Swipe.None;
-                    return;
-                }
+                    //swipeDirection = _Swipe.None;
+                    //return;
+                }*/
 
                 currentSwipe.Normalize();
-                
-                if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f && !_onGround) 
+
+                if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f && !_onGround)
                 {
                     swipeDirection = _Swipe.Up;
                     Debug.Log("SWIPE UP");
                     _rb.AddForce(0, 1500f * Time.fixedDeltaTime, 0, ForceMode.Impulse);
                     canSwipe = false;
                 }
-                else if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f) 
+                else if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
                 {
                     swipeDirection = _Swipe.Down;
                     Debug.Log("SWIPE DOWN");
@@ -190,20 +191,21 @@ public class Player : MonoBehaviour
                     }
                     canSwipe = false;
                 }
-                else if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f) 
+                else if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
                 {
                     swipeDirection = _Swipe.Left;
                     Debug.Log("SWIPE LEFT");
                     ChangeLane(-1.5f);
                     canSwipe = false;
                 }
-                else if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f) 
+                else if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
                 {
                     swipeDirection = _Swipe.Right;
                     Debug.Log("SWIPE RIGHT");
                     ChangeLane(1.5f);
                     canSwipe = false;
                 }
+            
             }
 
             else if (t.phase == TouchPhase.Ended)

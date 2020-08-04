@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Materials/DeformationTexture.mat.meta
 guid: 77a51e6d6c59aab49b8440843ab89fde
 NativeFormatImporter:
+=======
+guid: 938d9248e9f0f574cb40a5bbca66dae4
+folderAsset: yes
+DefaultImporter:
+>>>>>>> master:Assets/BOXOPHOBIC/Skybox Cubemap Extended/Demo/Post.meta
   externalObjects: {}
   mainObjectFileID: 0
   userData: 

@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class LevelSelecter : MonoBehaviour
 {
     public Button[] lvlButtons;
+    public Button nxtPageButton;
     private int _currentPage = 0;
     public GameObject[] pages;
     private int lastPage;
@@ -69,8 +70,7 @@ public class LevelSelecter : MonoBehaviour
 
     public void LoadLevel(int level)
     {
-        SceneManager.LoadScene(level);
-        //GameManager.instance.speed = dificulty;
+        FadeManager.instance.PlayFadeOut();
         switch (MenuManager.instance.dificultyLevel)
         {
             case 0:
@@ -84,6 +84,7 @@ public class LevelSelecter : MonoBehaviour
                 break;
 
         }
+        SceneManager.LoadScene(level);
     }
 
     public void NextPage()
@@ -93,6 +94,9 @@ public class LevelSelecter : MonoBehaviour
         pages[_currentPage].SetActive(false);
         pages[_currentPage + 1].SetActive(true);
         _currentPage += 1;
+
+        if (_currentPage != lastPage) return;
+        nxtPageButton.interactable = false;
     }
 
     public void PreviousPage()
@@ -107,6 +111,8 @@ public class LevelSelecter : MonoBehaviour
             pages[_currentPage - 1].SetActive(true);
             _currentPage -= 1;
         }
+        if (_currentPage == lastPage) return;
+        nxtPageButton.interactable = true;
     }
 
     public void LoadNormal()

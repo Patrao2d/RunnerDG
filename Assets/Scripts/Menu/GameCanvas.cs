@@ -54,6 +54,7 @@ public class GameCanvas : MonoBehaviour
         {
             Time.timeScale = 0;
         }
+        Debug.Log(Time.timeScale);
     }
 
     public void MainMenu()
@@ -65,43 +66,9 @@ public class GameCanvas : MonoBehaviour
 
     public void NextLevel()
     {
-
-        // ultimo nivel do build index
-        if (SceneManager.GetActiveScene().buildIndex == 36)
-        {
-            Debug.Log("yaya");
-        }
-        else if (MenuManager.instance.dificultyLevel == 0)
-        {
-            SceneManager.LoadScene(nextSceneLoad);
-
-            if (nextSceneLoad > PlayerPrefs.GetInt("levelAtNormal"))
-            {
-                PlayerPrefs.SetInt("levelAtNormal", nextSceneLoad);
-                Debug.Log("normal");
-            }
-        }
-        else if (MenuManager.instance.dificultyLevel == 1)
-        {
-            SceneManager.LoadScene(nextSceneLoad);
-
-            if (nextSceneLoad > PlayerPrefs.GetInt("levelAtHard"))
-            {
-                PlayerPrefs.SetInt("levelAtHard", nextSceneLoad);
-                Debug.Log("hard");
-            }
-        }
-        else if (MenuManager.instance.dificultyLevel == 2)
-        {
-            SceneManager.LoadScene(nextSceneLoad);
-
-            if (nextSceneLoad > PlayerPrefs.GetInt("levelAtNightmare"))
-            {
-                PlayerPrefs.SetInt("levelAtNightmare", nextSceneLoad);
-                Debug.Log("nightmare");
-            }
-        }
+        StartCoroutine(FadeToNextLevel());
     }
+
 
     public void TryAgain()
     {
@@ -166,5 +133,47 @@ public class GameCanvas : MonoBehaviour
     private void SlowdownPause()
     {
         _endGame = true;
+    }
+
+    IEnumerator FadeToNextLevel()
+    {
+        FadeManager.instance.PlayFadeOut();
+
+        yield return new WaitForSecondsRealtime(1.5f);
+
+        if (SceneManager.GetActiveScene().buildIndex == 36)
+        {
+            Debug.Log("yaya");
+        }
+        else if (MenuManager.instance.dificultyLevel == 0)
+        {
+            SceneManager.LoadScene(nextSceneLoad);
+
+            if (nextSceneLoad > PlayerPrefs.GetInt("levelAtNormal"))
+            {
+                PlayerPrefs.SetInt("levelAtNormal", nextSceneLoad);
+                Debug.Log("normal");
+            }
+        }
+        else if (MenuManager.instance.dificultyLevel == 1)
+        {
+            SceneManager.LoadScene(nextSceneLoad);
+
+            if (nextSceneLoad > PlayerPrefs.GetInt("levelAtHard"))
+            {
+                PlayerPrefs.SetInt("levelAtHard", nextSceneLoad);
+                Debug.Log("hard");
+            }
+        }
+        else if (MenuManager.instance.dificultyLevel == 2)
+        {
+            SceneManager.LoadScene(nextSceneLoad);
+
+            if (nextSceneLoad > PlayerPrefs.GetInt("levelAtNightmare"))
+            {
+                PlayerPrefs.SetInt("levelAtNightmare", nextSceneLoad);
+                Debug.Log("nightmare");
+            }
+        }
     }
 }
