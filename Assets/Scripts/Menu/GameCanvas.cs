@@ -39,7 +39,7 @@ public class GameCanvas : MonoBehaviour
         _instance = this;
         nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
         currentLevel = SceneManager.GetActiveScene().buildIndex;
-        levelText.text = "Level: " + currentLevel;
+        levelText.text = currentLevel.ToString();
     }
 
     // Update is called once per frame
@@ -99,13 +99,13 @@ public class GameCanvas : MonoBehaviour
     {
         if (isGamePaused)
         {
-            pauseMenu.SetActive(false);            
+            pauseMenu.SetActive(false);
             pauseButton.GetComponent<Image>().sprite = unpauseImage;
             DelayedStart.instance.PlayAnim();
             isGamePaused = !isGamePaused;
             Time.timeScale = 1;
         }
-        else
+        else if (!isGamePaused && Time.timeScale == 1)
         {
             Time.timeScale = 0;
             pauseMenu.SetActive(true);           
@@ -139,7 +139,7 @@ public class GameCanvas : MonoBehaviour
     {
         FadeManager.instance.PlayFadeOut();
 
-        yield return new WaitForSecondsRealtime(1.5f);
+        yield return new WaitForSecondsRealtime(1f);
 
         if (SceneManager.GetActiveScene().buildIndex == 36)
         {
