@@ -23,4 +23,13 @@ public class FadeManager : MonoBehaviour
     {
         anim.SetTrigger("Start");
     }
+
+    public void StopTime()
+    {
+        Time.timeScale = 0;
+    }
+    public void StartTime()
+    {
+        Time.timeScale = 1;
+    }
 }
