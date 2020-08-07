@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public Vector2 firstPressPos;
     public Vector2 secondPressPos;
     public Vector2 currentSwipe;
+    public Vector2 oldSecondPressPos;
 
     // Bools
     private bool _onGround;
@@ -94,7 +95,7 @@ public class Player : MonoBehaviour
 
         //_onGround = Physics.BoxCast(playerCol)
 
-        if (Input.GetKeyDown(KeyCode.A))
+        /*if (Input.GetKeyDown(KeyCode.A))
         {
             ChangeLane(-1.5f);
         }
@@ -102,7 +103,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D))
         {
             ChangeLane(1.5f);
-        }
+        }*/
 
         // works this way for some reason, TO FIX LATER
         if (Input.GetKeyDown(KeyCode.Space) && !_onGround || Input.GetKeyDown(KeyCode.W) && !_onGround)
@@ -121,8 +122,18 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        //Debug.Log(_onGround);
-        Vector3 __targetPosition = new Vector3(_verticalTargetPosition.x, transform.position.y, transform.position.z);
+        if (Input.GetKey(KeyCode.A))
+        {
+            ChangeLane(-0.2f);
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            ChangeLane(0.2f);
+        }
+
+            //Debug.Log(_onGround);
+            Vector3 __targetPosition = new Vector3(_verticalTargetPosition.x, transform.position.y, transform.position.z);
         transform.position = Vector3.MoveTowards(transform.position, __targetPosition, laneSpeed * Time.deltaTime);
     }
 
@@ -143,7 +154,7 @@ public class Player : MonoBehaviour
         _verticalTargetPosition = new Vector3((_currentLane - 0), transform.position.y, transform.position.z);
     }
 
-    public void DetectSwipe()
+     public void DetectSwipe()
     {
         if (Input.touches.Length > 0)
         {
@@ -154,28 +165,30 @@ public class Player : MonoBehaviour
                 firstPressPos = new Vector2(t.position.x, t.position.y);
             }
 
-            else if (t.phase == TouchPhase.Moved && canSwipe == true)
+            else if (t.phase == TouchPhase.Moved)
             {
                 secondPressPos = new Vector2(t.position.x, t.position.y);
-                currentSwipe = new Vector2((secondPressPos.x) - (firstPressPos.x), (secondPressPos.y) - (firstPressPos.y));
-
-                // Make sure it was a legit swipe, not a tap
-                /*if (currentSwipe.magnitude > minSwipeLength)
+                if (canSwipe == true)
                 {
-                    //swipeDirection = _Swipe.None;
-                    //return;
-                }*/
+                    currentSwipe = new Vector2((secondPressPos.x) - (firstPressPos.x), (secondPressPos.y) - (firstPressPos.y));
+                    canSwipe = false;
+                }
+                else
+                {
+                    currentSwipe = new Vector2((secondPressPos.x) - (oldSecondPressPos.x), (secondPressPos.y) - (oldSecondPressPos.y));
+                }
 
                 currentSwipe.Normalize();
-
-                if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f && !_onGround)
+                // JUMP
+                if (currentSwipe.y > 0 && currentSwipe.x > -0.3f && currentSwipe.x < 0.3f && !_onGround)
                 {
                     swipeDirection = _Swipe.Up;
                     Debug.Log("SWIPE UP");
                     _rb.AddForce(0, 1500f * Time.fixedDeltaTime, 0, ForceMode.Impulse);
-                    canSwipe = false;
+                    oldSecondPressPos = new Vector2(secondPressPos.x, secondPressPos.y);
                 }
-                else if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
+                // SLIDE
+                else if (currentSwipe.y < 0 && currentSwipe.x > -0.3f && currentSwipe.x < 0.3f)
                 {
                     swipeDirection = _Swipe.Down;
                     Debug.Log("SWIPE DOWN");
@@ -189,21 +202,23 @@ public class Player : MonoBehaviour
                     {
                         _rb.AddForce(0, -1000f * Time.fixedDeltaTime, 0, ForceMode.Impulse);
                     }
-                    canSwipe = false;
+                    oldSecondPressPos = new Vector2(secondPressPos.x, secondPressPos.y);
                 }
+                // LEFT
                 else if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
                 {
                     swipeDirection = _Swipe.Left;
                     Debug.Log("SWIPE LEFT");
-                    ChangeLane(-1.5f);
-                    canSwipe = false;
+                    ChangeLane(-0.3f);
+                    oldSecondPressPos = new Vector2(secondPressPos.x, secondPressPos.y);
                 }
+                // RIGHT
                 else if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
                 {
                     swipeDirection = _Swipe.Right;
                     Debug.Log("SWIPE RIGHT");
-                    ChangeLane(1.5f);
-                    canSwipe = false;
+                    ChangeLane(0.3f);
+                    oldSecondPressPos = new Vector2(secondPressPos.x, secondPressPos.y);
                 }
             
             }
@@ -218,6 +233,7 @@ public class Player : MonoBehaviour
             swipeDirection = _Swipe.None;
         }
     }
+
 
     public void ActiveShield()
     {
