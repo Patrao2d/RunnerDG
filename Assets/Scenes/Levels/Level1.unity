@@ -129,20 +129,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 853151524184648511, guid: 64035233c4c2b06488b3335d4a184f10,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
+    - target: {fileID: 312272195, guid: 64035233c4c2b06488b3335d4a184f10, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 322
       objectReference: {fileID: 0}
-    - target: {fileID: 853151524184648511, guid: 64035233c4c2b06488b3335d4a184f10,
-        type: 3}
-      propertyPath: m_Type
-      value: 1
+    - target: {fileID: 645219910, guid: 64035233c4c2b06488b3335d4a184f10, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -81
       objectReference: {fileID: 0}
-    - target: {fileID: 1348357197333366937, guid: 64035233c4c2b06488b3335d4a184f10,
+    - target: {fileID: 1582844759323347541, guid: 64035233c4c2b06488b3335d4a184f10,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 4042455095123035785, guid: 64035233c4c2b06488b3335d4a184f10,
         type: 3}
@@ -254,15 +252,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 6053755525264783522, guid: 64035233c4c2b06488b3335d4a184f10,
+    - target: {fileID: 6295096510661107687, guid: 64035233c4c2b06488b3335d4a184f10,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7820322632128234215, guid: 64035233c4c2b06488b3335d4a184f10,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      value: -112.79999
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64035233c4c2b06488b3335d4a184f10, type: 3}
