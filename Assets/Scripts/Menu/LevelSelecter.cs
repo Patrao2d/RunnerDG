@@ -25,7 +25,6 @@ public class LevelSelecter : MonoBehaviour
     void Start()
     {
         _instance = this;
-
         /* if (MenuManager.instance.dificultyLevel == 0)
          {
              int __levelAtNormal = PlayerPrefs.GetInt("levelAtNormal", 1);
@@ -70,7 +69,6 @@ public class LevelSelecter : MonoBehaviour
 
     public void LoadLevel(int level)
     {
-        FadeManager.instance.PlayFadeOut();
         switch (MenuManager.instance.dificultyLevel)
         {
             case 0:
@@ -85,6 +83,7 @@ public class LevelSelecter : MonoBehaviour
 
         }
         SceneManager.LoadScene(level);
+        //FadeManager.instance.PlayFadeOut();
     }
 
     public void NextPage()
