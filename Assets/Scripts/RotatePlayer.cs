@@ -20,7 +20,7 @@ public class RotatePlayer : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        transform.Rotate(SpeedValue.instance.speed * 11, 0, 0);
+        transform.Rotate(SpeedValue.instance.speed * 15, 0, 0);
     }
 
     public void WinAnim()

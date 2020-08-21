@@ -43,8 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec7e3dafa8ac65e4b850e8472b6a3abe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nPlayers: 91
-  deadChance: 92
-  playerLeft: {fileID: 0}
-  timerText: {fileID: 0}
+  slider: {fileID: 0}
+  totalLevelDuration: 200
   timer: 0

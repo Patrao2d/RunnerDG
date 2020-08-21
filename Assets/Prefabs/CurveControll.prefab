@@ -44,6 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurveOrigin: {fileID: 0}
-  x: 0
-  y: -0.05
+  startX: 0
+  startY: 0
   falloff: 50
+  newX: 4.79245
+  newY: -2.4721587
+  currentX: 0.79974127
+  currentY: -1.5930536
