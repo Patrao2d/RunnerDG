@@ -116,4 +116,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Level36.unity
     guid: b52e60021b8781e4a8b788ce5ddadf99
+  - enabled: 1
+    path: Assets/Scenes/LastLevel.unity
+    guid: f57bb578003d08f4183f68e182a06d1e
   m_configObjects: {}

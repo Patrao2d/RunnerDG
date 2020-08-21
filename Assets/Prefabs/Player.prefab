@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 491060449}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1666667, y: 1.1666667, z: 1.1666667}
+  m_LocalScale: {x: 1.1666667, y: 1.1666667, z: 1.166667}
   m_Children: []
   m_Father: {fileID: 6609180115640091842}
   m_RootOrder: 0
@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 7609107244295268243}
   - component: {fileID: 5586505861340706717}
   - component: {fileID: 3814366377251216044}
+  - component: {fileID: 495576479}
   m_Layer: 10
   m_Name: Sphere
   m_TagString: Untagged
@@ -220,6 +221,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c941a7e79236646ab0f98d14493109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &495576479
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605452959693582824}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9899606bbdae8614abda52d13696a98b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6366638276229013069
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,14 +344,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d200558d1720c0478e80ceac0af71fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstPressPos: {x: 0, y: 0}
-  secondPressPos: {x: 0, y: 0}
-  currentSwipe: {x: 0, y: 0}
   isInvulnerable: 0
   isShieldActive: 0
   shield: {fileID: 491060449}
-  laneSpeed: 15
-  minSwipeLength: 200
+  speedModifier: 100
   playerCollider: {fileID: 6366638276956719287}
   platformLayer:
     serializedVersion: 2

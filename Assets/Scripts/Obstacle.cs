@@ -6,8 +6,22 @@ public class Obstacle : MonoBehaviour
 {
     private bool _canCollide = true;
 
+    public enum swipeDirection { sides, up, down };
+    public swipeDirection dodgeDirection;
 
-    private void OnTriggerEnter(Collider other)
+    private static Obstacle _instance;
+
+    public static Obstacle instance
+    {
+        get { return _instance; }
+    }
+
+    private void Start()
+    {
+        _instance = this;
+    }
+
+    /*private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Obstacle") && _canCollide)
         {
@@ -23,5 +37,5 @@ public class Obstacle : MonoBehaviour
     {
         yield return new WaitForSeconds(0.01f);
         _canCollide = true;
-    }
+    }*/
 }

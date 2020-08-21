@@ -18,7 +18,8 @@ public class GameCanvas : MonoBehaviour
     // Bools
     [HideInInspector]
     public bool isGamePaused = false;
-    private bool _endGame =false;
+    private bool _endGame = false;
+    private bool winGame = true;
 
     public Button pauseButton;
 
@@ -53,13 +54,18 @@ public class GameCanvas : MonoBehaviour
         else if (_endGame && Time.timeScale < 0.1f)
         {
             Time.timeScale = 0;
+            if (winGame == true)
+            {               
+                RotatePlayer.instance.WinAnim();
+            } else
+            {              
+                RotatePlayer.instance.LoseAnim();
+            }
         }
-        Debug.Log(Time.timeScale);
     }
 
     public void MainMenu()
     {
-        // Goto main menu
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
     }
@@ -87,12 +93,14 @@ public class GameCanvas : MonoBehaviour
         TrackController.instance.ClearAllTracks();
         winMenu.SetActive(true);
         SlowdownPause();
+        winGame = true;
     }
 
     public void LoseMenu()
     {
         loseMenu.SetActive(true);
         SlowdownPause();
+        winGame = false;
     }
 
     public void PauseButton()
@@ -139,40 +147,19 @@ public class GameCanvas : MonoBehaviour
     {
         FadeManager.instance.PlayFadeOut();
 
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSecondsRealtime(0.35f);
 
-        if (SceneManager.GetActiveScene().buildIndex == 36)
-        {
-            Debug.Log("yaya");
-        }
-        else if (MenuManager.instance.dificultyLevel == 0)
+        if (SceneManager.GetActiveScene().buildIndex == 37)
         {
             SceneManager.LoadScene(nextSceneLoad);
-
-            if (nextSceneLoad > PlayerPrefs.GetInt("levelAtNormal"))
-            {
-                PlayerPrefs.SetInt("levelAtNormal", nextSceneLoad);
-                Debug.Log("normal");
-            }
+            Debug.Log("current last level");
         }
-        else if (MenuManager.instance.dificultyLevel == 1)
+        else 
         {
             SceneManager.LoadScene(nextSceneLoad);
-
-            if (nextSceneLoad > PlayerPrefs.GetInt("levelAtHard"))
+            if (nextSceneLoad > PlayerPrefs.GetInt("levelAt"))
             {
-                PlayerPrefs.SetInt("levelAtHard", nextSceneLoad);
-                Debug.Log("hard");
-            }
-        }
-        else if (MenuManager.instance.dificultyLevel == 2)
-        {
-            SceneManager.LoadScene(nextSceneLoad);
-
-            if (nextSceneLoad > PlayerPrefs.GetInt("levelAtNightmare"))
-            {
-                PlayerPrefs.SetInt("levelAtNightmare", nextSceneLoad);
-                Debug.Log("nightmare");
+                PlayerPrefs.SetInt("levelAt", nextSceneLoad);
             }
         }
     }

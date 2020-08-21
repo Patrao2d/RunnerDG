@@ -2,91 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    public GameObject startMenu;
-    public GameObject levelSelect;
-
-    public GameObject normal;
-    public GameObject hard;
-    public GameObject nightmare;
-
-    [HideInInspector]
-    public int dificultyLevel; // 0 - normal , 1 - hard , 2 - nightmare
-
-    private static MenuManager _instance;
-
-    public static MenuManager instance
-    {
-        get { return _instance; }
-    }
-
-
+    private int _savedLevel;
+    public GameObject loadingMenu;
 
     private void Start()
     {
-        _instance = this;
-        //AdManager.instance.PlayBannerAd();
+        Invoke("ShowBannerAd", 0.1f);
     }
 
-    private void OnEnable()
+
+    public void PlayGame()
     {
-        AdManager.instance.PlayBannerAd(); 
+        LoadingGame();
+        _savedLevel = PlayerPrefs.GetInt("levelAt");
+        Debug.Log(_savedLevel);
+        if (_savedLevel == 0)
+        {
+            SceneManager.LoadScene(1);
+            AdManager.instance.HideBannerAd();
+        }
+        else
+        {
+            SceneManager.LoadScene(_savedLevel);        
+            AdManager.instance.HideBannerAd();
+        }
+        
     }
 
-    public void GoToNormal()
-    {  
-        startMenu.SetActive(false);
-        levelSelect.SetActive(true);       
-        normal.SetActive(true);
-        dificultyLevel = 0;
-        Invoke("InvokeNormal", 0.01f);
-        AdManager.instance.HideBannerAd();
-    }
-
-    public void GoToHard()
+    public void LoadingGame()
     {
-        startMenu.SetActive(false);
-        levelSelect.SetActive(true);
-        hard.SetActive(true);
-        dificultyLevel = 1;
-        Invoke("InvokeHard", 0.01f);
-        AdManager.instance.HideBannerAd();
+        loadingMenu.SetActive(true);
     }
 
-    public void GoToNightmare()
+    private void ShowBannerAd()
     {
-        startMenu.SetActive(false);
-        levelSelect.SetActive(true);
-        nightmare.SetActive(true);
-        dificultyLevel = 2;
-        Invoke("InvokeNightmare", 0.01f);
-        AdManager.instance.HideBannerAd();
-    }
-
-    public void BackToMain()
-    {
-        startMenu.SetActive(true);
-        levelSelect.SetActive(false);
-        normal.SetActive(false);
-        hard.SetActive(false);
-        nightmare.SetActive(false);
         AdManager.instance.PlayBannerAd();
-    }
-
-    public void InvokeNormal()
-    {
-        LevelSelecter.instance.LoadNormal();
-    }
-
-    public void InvokeHard()
-    {
-        LevelSelecter.instance.LoadHard();
-    }
-
-    public void InvokeNightmare()
-    {
-        LevelSelecter.instance.LoadNightMare();
     }
 }
