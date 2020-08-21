@@ -14,6 +14,7 @@ public class CameraController : MonoBehaviour
     private Vector3 _position;
     private Transform _thisCamera;
 
+
     private void Awake()
     {
         _thisCamera = GetComponent<Transform>();
@@ -30,12 +31,12 @@ public class CameraController : MonoBehaviour
     private void LateUpdate()
     {
         float __interpolation = smoothSpeed * Time.fixedDeltaTime;
-        //
+
         _position.x = Mathf.Lerp(transform.position.x, target.transform.position.x, __interpolation);
-        //_position.y = Mathf.Lerp(transform.position.y, (target.transform.position.y + _offsetY), __interpolation);
-        _position.y = Mathf.Clamp(Mathf.Lerp(transform.position.y, (target.transform.position.y + _offsetY), __interpolation),yMin,yMax);
+        _position.y = Mathf.Clamp(Mathf.Lerp(transform.position.y, (target.transform.position.y + _offsetY), __interpolation), yMin, yMax);
         _position.z = _offsetZ;
 
         transform.position = _position;
+
     }
 }

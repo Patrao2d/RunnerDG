@@ -8,30 +8,19 @@ public class SpeedValue : MonoBehaviour
     public float speed;
     [HideInInspector]
     public float savedSpeed;
+    public float maxSpeed;
+    public float TimeToReachMaxSpeed;
     private bool _isOnCooldown = false;
+    public bool isOnHyperSpeed = false;
+
+    private float _cenaRandom = 0.0f;
+    private float _cenaRandom2 = 0.0f;
 
     private static SpeedValue _instance;
 
     public static SpeedValue instance
     {
         get { return _instance; }
-    }
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            _instance = this;
-        }
-
-        //If instance already exists and it's not this:
-        else if (instance != this)
-        {
-            //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
-            Destroy(gameObject);
-        }
-
-        DontDestroyOnLoad(transform.gameObject);
     }
 
     // Start is called before the first frame update
@@ -42,6 +31,16 @@ public class SpeedValue : MonoBehaviour
 
     private void Update()
     {
+        if (isOnHyperSpeed == false)
+        {
+            speed = Mathf.SmoothDamp(speed, maxSpeed, ref _cenaRandom, TimeToReachMaxSpeed);
+            Debug.Log("cima");
+        }
+        else if (isOnHyperSpeed == true)
+        {
+            Debug.Log("baixo");
+            speed = Mathf.SmoothDamp(speed, -maxSpeed, ref _cenaRandom2, TimeToReachMaxSpeed / 10);
+        }
     }
 
     public void IncreaseSpeed()
@@ -51,7 +50,10 @@ public class SpeedValue : MonoBehaviour
             return;
         }
         _isOnCooldown = true;
-        savedSpeed = speed;
+        if (isOnHyperSpeed == false)
+        {
+            savedSpeed = speed;
+        }
         speed *= 1.3f;
         Invoke("BackToNormalSpeed", 5f);
         _isOnCooldown = false;
@@ -64,7 +66,10 @@ public class SpeedValue : MonoBehaviour
             return;
         }
         _isOnCooldown = true;
-        savedSpeed = speed;
+        if (isOnHyperSpeed == false)
+        {
+            savedSpeed = speed;
+        }        
         speed /= 1.3f;
         Invoke("BackToNormalSpeed", 5f);
         _isOnCooldown = false;
@@ -74,5 +79,21 @@ public class SpeedValue : MonoBehaviour
     private void BackToNormalSpeed()
     {
         speed = savedSpeed;
+    }
+
+    public void HyperSpeed()
+    {
+        isOnHyperSpeed = true;
+        savedSpeed = speed;
+        //Invoke("BackToNormalSpeed", 1f);
+        StartCoroutine(EndHyperSpeed());
+    }
+
+    IEnumerator EndHyperSpeed()
+    {
+        yield return new WaitForSeconds(2f);
+        speed = savedSpeed;
+        yield return new WaitForSeconds(0.25f);
+        isOnHyperSpeed = false;
     }
 }

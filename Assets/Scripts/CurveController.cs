@@ -68,7 +68,6 @@ public class CurveController : MonoBehaviour
         bendFalloffId = Shader.PropertyToID("_BendFalloff");
         currentX = startX;
         currentY = startY;
-        //StartCoroutine(ChangeValuesCooldown());
         InvokeRepeating("NewValues", 1.5f, 10.5f);
     }
 
@@ -87,8 +86,8 @@ public class CurveController : MonoBehaviour
 
     private void NewValues()
     {
-        newY = Random.Range(-6f, 0f);
-        newX = Random.Range(-7f, 7f);
+        newY = Random.Range(-8f, 0f);
+        newX = Random.Range(-11f, 11f);
         //StartCoroutine(ChangeValuesCooldown());
     }
 

@@ -8,8 +8,9 @@ public class LuckyCube : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int __randomPosition = Random.Range(0, 3);
-        switch (__randomPosition)
+        float __randomPosition = Random.Range(-1.5f, 1.5f);
+        transform.position = transform.position = new Vector3(__randomPosition, transform.position.y, transform.position.z);
+        /*switch (__randomPosition)
         {
             case 0:
                 transform.position = new Vector3(-1.5f, transform.position.y, transform.position.z);
@@ -21,7 +22,7 @@ public class LuckyCube : MonoBehaviour
                 transform.position = new Vector3(1.5f, transform.position.y, transform.position.z);
                 break;
 
-        }
+        }*/
     }
 
     // Update is called once per frame
@@ -37,6 +38,10 @@ public class LuckyCube : MonoBehaviour
     private void GenerateRandomPower()
     {
         int __RandomPowerNumber = Random.Range(0, 3);
+        if (SpeedValue.instance.isOnHyperSpeed == true)
+        {
+            __RandomPowerNumber = 0;
+        }
         switch (__RandomPowerNumber)
         {
             case 0:
