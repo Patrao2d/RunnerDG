@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Hazard : MonoBehaviour
 {
+    public GameObject destructedObject;
 
     // Update is called once per frame
     void Update()
@@ -22,7 +23,15 @@ public class Hazard : MonoBehaviour
             {
                 return;
             }
-            GameCanvas.instance.LoseMenu();
+            else if (SpeedValue.instance.isOnHyperSpeed == true)
+            {
+                HyperImpact();   
+            }
+            else
+            {
+                GameCanvas.instance.LoseMenu();
+            }
+            
         }
         if (other.CompareTag("Shield"))
         {
@@ -30,6 +39,12 @@ public class Hazard : MonoBehaviour
             Shield.instance.ExpandShield();
             Destroy(gameObject);           
         }
+    }
+
+    private void HyperImpact()
+    {
+        Instantiate(destructedObject, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 
 }

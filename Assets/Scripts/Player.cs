@@ -5,35 +5,26 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    // Vector3
-    private Vector3 _verticalTargetPosition;
-
-    // Vector 2
-    public Vector2 firstPressPos;
-    public Vector2 secondPressPos;
-    public Vector2 currentSwipe;
-    public Vector2 oldSecondPressPos;
-
     // Bools
     private bool _onGround;
     private bool _isSliding;
     public bool isInvulnerable;
-    private bool canSwipe = true;
     [HideInInspector]public bool isShieldActive;
+    private bool canJump = true;
+    private bool canSlide = true;
 
     // GameObjects
     public GameObject shield;
 
     // Floats
-    private float _currentLane = 0;
-    public float laneSpeed;
-    public float minSwipeLength = 5f;
+    public float speedModifier;
 
     // RigidBodys
     private Rigidbody _rb;
 
     // BoxCollider
-    public BoxCollider playerCollider;
+    //public BoxCollider playerCollider;
+    public SphereCollider playerCollider;
 
     // Layers
     public LayerMask platformLayer;
@@ -61,14 +52,47 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(Time.timeScale);
         if (GameCanvas.instance.isGamePaused || Time.timeScale < 0.9f)
         {
             return;
         }
 
-        DetectSwipe();
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
 
-        //Debug.Log(isInvulnerable);
+            if (touch.phase == TouchPhase.Moved)
+            {             
+                transform.position = new Vector3(Mathf.Clamp(transform.position.x + touch.deltaPosition.x / speedModifier, -2, 2),
+                    transform.position.y, transform.position.z);
+
+                if (transform.position.y + touch.deltaPosition.y > 44.5f && canJump && !_onGround)
+                {
+                    RotatePlayer.instance.JumpAnim();
+                    canJump = false;
+                    _rb.AddForce(0, 1500f * Time.fixedDeltaTime, 0, ForceMode.Impulse);
+                    Invoke("CanJumpAgain", 0.1f);
+                }
+                else if (transform.position.y + touch.deltaPosition.y < -44.5f && canSlide)
+                {
+                    if (!_onGround && !_isSliding)
+                    {
+                        transform.localScale /= 1.5f;
+                        _isSliding = true;
+                        StartCoroutine(Sliding());
+                        Invoke("CanSlideAgain", 0.25f);
+                    }
+                    else
+                    {
+                        _rb.AddForce(0, -1000f * Time.fixedDeltaTime, 0, ForceMode.Impulse);
+                        Invoke("CanSlideAgain", 0.1f);
+                    }
+                    canSlide = false;
+                }
+            }
+        }
+
         // works this way for some reason, TO FIX LATER
         float __extraHeight = 100f;
         _onGround = Physics.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, Vector3.down, 
@@ -93,48 +117,27 @@ public class Player : MonoBehaviour
             }
         }
 
-        //_onGround = Physics.BoxCast(playerCol)
-
-        /*if (Input.GetKeyDown(KeyCode.A))
-        {
-            ChangeLane(-1.5f);
-        }
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            ChangeLane(1.5f);
-        }*/
-
         // works this way for some reason, TO FIX LATER
         if (Input.GetKeyDown(KeyCode.Space) && !_onGround || Input.GetKeyDown(KeyCode.W) && !_onGround)
         {
-            _rb.AddForce(0, 1500f * Time.fixedDeltaTime, 0, ForceMode.Impulse);   
+            _rb.AddForce(0, 1500f * Time.fixedDeltaTime, 0, ForceMode.Impulse);
+            RotatePlayer.instance.JumpAnim();
         }
-
-       /* if (Input.GetKeyDown(KeyCode.LeftShift) && !_isSliding)
-        {
-            transform.localScale /= 1.5f;
-            _isSliding = true;
-            StartCoroutine(Sliding());
-        }*/
 
     }
 
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.A))
+
+        if (Input.GetKey(KeyCode.A) && transform.position.x >= -1.8)
         {
-            ChangeLane(-0.2f);
+            transform.position = new Vector3(transform.position.x - 0.2f, transform.position.y, transform.position.z);
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && transform.position.x <= 1.8)
         {
-            ChangeLane(0.2f);
+            transform.position = new Vector3(transform.position.x + 0.2f, transform.position.y, transform.position.z);
         }
-
-            //Debug.Log(_onGround);
-            Vector3 __targetPosition = new Vector3(_verticalTargetPosition.x, transform.position.y, transform.position.z);
-        transform.position = Vector3.MoveTowards(transform.position, __targetPosition, laneSpeed * Time.deltaTime);
     }
 
     private IEnumerator Sliding()
@@ -143,97 +146,6 @@ public class Player : MonoBehaviour
         transform.localScale *= 1.5f;
         _isSliding = false;
     }
-
-
-    public void ChangeLane(float direction)
-    {
-        float __targetLane = _currentLane + direction;
-        if (__targetLane < -1.5f || __targetLane > 1.5f)
-            return;
-        _currentLane = __targetLane;
-        _verticalTargetPosition = new Vector3((_currentLane - 0), transform.position.y, transform.position.z);
-    }
-
-     public void DetectSwipe()
-    {
-        if (Input.touches.Length > 0)
-        {
-            Touch t = Input.GetTouch(0);
-
-            if (t.phase == TouchPhase.Began)
-            {
-                firstPressPos = new Vector2(t.position.x, t.position.y);
-            }
-
-            else if (t.phase == TouchPhase.Moved)
-            {
-                secondPressPos = new Vector2(t.position.x, t.position.y);
-                if (canSwipe == true)
-                {
-                    currentSwipe = new Vector2((secondPressPos.x) - (firstPressPos.x), (secondPressPos.y) - (firstPressPos.y));
-                    canSwipe = false;
-                }
-                else
-                {
-                    currentSwipe = new Vector2((secondPressPos.x) - (oldSecondPressPos.x), (secondPressPos.y) - (oldSecondPressPos.y));
-                }
-
-                currentSwipe.Normalize();
-                // JUMP
-                if (currentSwipe.y > 0 && currentSwipe.x > -0.3f && currentSwipe.x < 0.3f && !_onGround)
-                {
-                    swipeDirection = _Swipe.Up;
-                    Debug.Log("SWIPE UP");
-                    _rb.AddForce(0, 1500f * Time.fixedDeltaTime, 0, ForceMode.Impulse);
-                    oldSecondPressPos = new Vector2(secondPressPos.x, secondPressPos.y);
-                }
-                // SLIDE
-                else if (currentSwipe.y < 0 && currentSwipe.x > -0.3f && currentSwipe.x < 0.3f)
-                {
-                    swipeDirection = _Swipe.Down;
-                    Debug.Log("SWIPE DOWN");
-                    if (!_onGround && !_isSliding)
-                    {
-                        transform.localScale /= 1.5f;
-                        _isSliding = true;
-                        StartCoroutine(Sliding());
-                    }
-                    else
-                    {
-                        _rb.AddForce(0, -1000f * Time.fixedDeltaTime, 0, ForceMode.Impulse);
-                    }
-                    oldSecondPressPos = new Vector2(secondPressPos.x, secondPressPos.y);
-                }
-                // LEFT
-                else if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
-                {
-                    swipeDirection = _Swipe.Left;
-                    Debug.Log("SWIPE LEFT");
-                    ChangeLane(-0.3f);
-                    oldSecondPressPos = new Vector2(secondPressPos.x, secondPressPos.y);
-                }
-                // RIGHT
-                else if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
-                {
-                    swipeDirection = _Swipe.Right;
-                    Debug.Log("SWIPE RIGHT");
-                    ChangeLane(0.3f);
-                    oldSecondPressPos = new Vector2(secondPressPos.x, secondPressPos.y);
-                }
-            
-            }
-
-            else if (t.phase == TouchPhase.Ended)
-            {
-                canSwipe = true;
-            }
-        }
-        else
-        {
-            swipeDirection = _Swipe.None;
-        }
-    }
-
 
     public void ActiveShield()
     {
@@ -250,5 +162,15 @@ public class Player : MonoBehaviour
     public void ChangeVulnerability()
     {
         isInvulnerable = !isInvulnerable;
+    }
+
+    public void CanJumpAgain()
+    {
+        canJump = true;
+    }
+
+    public void CanSlideAgain()
+    {
+        canSlide = true;
     }
 }
