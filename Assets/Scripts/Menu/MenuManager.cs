@@ -8,6 +8,8 @@ public class MenuManager : MonoBehaviour
 {
     private int _savedLevel;
     public GameObject loadingMenu;
+    public GameObject creditsMenu;
+    public GameObject mainMenu;
 
     private void Start()
     {
@@ -41,5 +43,17 @@ public class MenuManager : MonoBehaviour
     private void ShowBannerAd()
     {
         AdManager.instance.PlayBannerAd();
+    }
+
+    public void CreditsMenu()
+    {
+        creditsMenu.SetActive(true);
+        mainMenu.SetActive(false);
+    }
+
+    public void BackToMenu()
+    {
+        creditsMenu.SetActive(false);
+        mainMenu.SetActive(true);
     }
 }

@@ -14,7 +14,6 @@ public class SpeedValue : MonoBehaviour
     public bool isOnHyperSpeed = false;
 
     private float _cenaRandom = 0.0f;
-    private float _cenaRandom2 = 0.0f;
 
     private static SpeedValue _instance;
 
@@ -31,16 +30,7 @@ public class SpeedValue : MonoBehaviour
 
     private void Update()
     {
-        if (isOnHyperSpeed == false)
-        {
             speed = Mathf.SmoothDamp(speed, maxSpeed, ref _cenaRandom, TimeToReachMaxSpeed);
-            Debug.Log("cima");
-        }
-        else if (isOnHyperSpeed == true)
-        {
-            Debug.Log("baixo");
-            speed = Mathf.SmoothDamp(speed, -maxSpeed, ref _cenaRandom2, TimeToReachMaxSpeed / 10);
-        }
     }
 
     public void IncreaseSpeed()
