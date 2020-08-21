@@ -327,10 +327,11 @@ MonoBehaviour:
   firstPressPos: {x: 0, y: 0}
   secondPressPos: {x: 0, y: 0}
   currentSwipe: {x: 0, y: 0}
+  oldSecondPressPos: {x: 0, y: 0}
   isInvulnerable: 0
   isShieldActive: 0
   shield: {fileID: 491060449}
-  laneSpeed: 15
+  laneSpeed: 3000
   minSwipeLength: 200
   playerCollider: {fileID: 6366638276956719287}
   platformLayer:
