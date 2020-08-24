@@ -33,6 +33,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2871857228346133077, guid: e6e144a25291a2e4f8c84c0f99e3bd9c,
         type: 3}
+    - target: {fileID: 3171370619355533158, guid: f2d8b9c842cda334d9a59d66727fec76,
+        type: 3}
+      propertyPath: obstacle
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5191427115028323393, guid: f2d8b9c842cda334d9a59d66727fec76,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -87,6 +92,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723299232878386723, guid: f2d8b9c842cda334d9a59d66727fec76,
+        type: 3}
+      propertyPath: dodgeDirection
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1365474925989759756, guid: f2d8b9c842cda334d9a59d66727fec76, type: 3}

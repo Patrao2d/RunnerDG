@@ -52,7 +52,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(Time.timeScale);
         if (GameCanvas.instance.isGamePaused || Time.timeScale < 0.9f)
         {
             return;

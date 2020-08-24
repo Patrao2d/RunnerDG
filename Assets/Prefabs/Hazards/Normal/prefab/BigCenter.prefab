@@ -109,6 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destructedObject: {fileID: 3967879552590386765, guid: 2279439f59b5d0a4586da02e2a5adff7,
     type: 3}
+  obstacle: 3
 --- !u!114 &434014947269091093
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Delete))
         {
-            //PlayerPrefs.DeleteKey("levelAtNormal");
             PlayerPrefs.DeleteAll();
         }
         if (Input.GetKeyDown(KeyCode.Comma))
