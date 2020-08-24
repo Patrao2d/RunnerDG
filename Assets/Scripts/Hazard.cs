@@ -1,10 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class Hazard : MonoBehaviour
 {
     public GameObject destructedObject;
+
+    public enum obstacles { AllHigh, AllHighMedium, AllUnder, BigCenter, BigNormalCenter, HyperSpeedCube, NormalCenter,
+    ObstacleLLeft, ObstacleLRight, ObstacleT };
+    public obstacles obstacle;
 
     // Update is called once per frame
     void Update()
@@ -25,10 +30,22 @@ public class Hazard : MonoBehaviour
             }
             else if (SpeedValue.instance.isOnHyperSpeed == true)
             {
-                HyperImpact();   
+                HyperImpact();
             }
             else
             {
+                AnalyticsResult analyticsResult = Analytics.CustomEvent(
+                    "LevelLose",
+                    new Dictionary<string, object>
+                    {
+                        {"Level: ", PlayerPrefs.GetInt("levelAt") },
+                        {"Hazard: ", obstacle },
+                        {"Speed: ", SpeedValue.instance.speed },
+                        {"Time: ", Mathf.RoundToInt(GameManager.instance.timer)}
+                    }                    
+                    );
+                Debug.Log("Time: " + Mathf.RoundToInt(GameManager.instance.timer));
+                Debug.Log("Analytic result: " + analyticsResult);
                 GameCanvas.instance.LoseMenu();
             }
             

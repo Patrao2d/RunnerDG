@@ -68,6 +68,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4434359794211740954, guid: 408064809e877f44c9da0b7ba81c900c,
         type: 3}
+    - target: {fileID: 5375653174750137816, guid: 5ce59513cfe677349b1c6e9ba4e19c40,
+        type: 3}
+      propertyPath: obstacle
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8474714956632561968, guid: 5ce59513cfe677349b1c6e9ba4e19c40,
         type: 3}
       propertyPath: m_LocalScale.x

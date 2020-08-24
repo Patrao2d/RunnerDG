@@ -6,7 +6,7 @@ public class Obstacle : MonoBehaviour
 {
     private bool _canCollide = true;
 
-    public enum swipeDirection { sides, up, down };
+    public enum swipeDirection { sides, up, down, none };
     public swipeDirection dodgeDirection;
 
     private static Obstacle _instance;

@@ -38,6 +38,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 546708885782529715, guid: 1c77a2552ade0a04094416364c34e29e,
         type: 3}
+    - target: {fileID: 4645327428988269215, guid: 39b32324fdf5a2b4493eae0a9f08e167,
+        type: 3}
+      propertyPath: obstacle
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4685399941888378136, guid: 39b32324fdf5a2b4493eae0a9f08e167,
         type: 3}
       propertyPath: m_LocalPosition.x

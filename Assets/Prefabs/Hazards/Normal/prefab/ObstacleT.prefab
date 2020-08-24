@@ -38,7 +38,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4356a3732e9624cb4a0ee6fa56d5d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dodgeDirection: 0
+  dodgeDirection: 3
 --- !u!114 &8971922573847152464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,6 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destructedObject: {fileID: 7154905308510769477, guid: b00f0638e5fcfbd498d3c42ef4645b82,
     type: 3}
+  obstacle: 9
 --- !u!1 &7360581372037891025
 GameObject:
   m_ObjectHideFlags: 0
