@@ -34,6 +34,7 @@ public class Hazard : MonoBehaviour
             }
             else
             {
+                GameCanvas.instance.LoseMenu();
                 AnalyticsResult analyticsResult = Analytics.CustomEvent(
                     "LevelLose",
                     new Dictionary<string, object>
@@ -46,7 +47,7 @@ public class Hazard : MonoBehaviour
                     );
                 Debug.Log("Time: " + Mathf.RoundToInt(GameManager.instance.timer));
                 Debug.Log("Analytic result: " + analyticsResult);
-                GameCanvas.instance.LoseMenu();
+                
             }
             
         }

@@ -49,7 +49,7 @@ public class GameCanvas : MonoBehaviour
 
         if (_endGame && Time.timeScale >= 0.1f)
         {
-            Time.timeScale -= 0.025f;
+            Time.timeScale -= 0.05f;
         }
         else if (_endGame && Time.timeScale < 0.1f)
         {
