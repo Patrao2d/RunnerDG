@@ -385,12 +385,12 @@ PrefabInstance:
         type: 3}
       propertyPath: playerLeft
       value: 
-      objectReference: {fileID: 1601958121}
+      objectReference: {fileID: 0}
     - target: {fileID: 2492245898652880800, guid: a919557a70ebb25409653474707a3e7b,
         type: 3}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 702997233}
+      objectReference: {fileID: 0}
     - target: {fileID: 2492245898652880801, guid: a919557a70ebb25409653474707a3e7b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -533,18 +533,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fecc295d3e433e142a80966f9d95034d, type: 3}
---- !u!114 &702997233 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 703832020, guid: 64035233c4c2b06488b3335d4a184f10,
-    type: 3}
-  m_PrefabInstance: {fileID: 1839929140}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1103517544
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,7 +656,7 @@ PrefabInstance:
     - target: {fileID: 3283819210843978779, guid: a3033d0963090ca47abe91af01c80ac4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.5
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 3283819210843978779, guid: a3033d0963090ca47abe91af01c80ac4,
         type: 3}
@@ -1650,18 +1638,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1567553533}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1601958121 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1478749518887385439, guid: 64035233c4c2b06488b3335d4a184f10,
-    type: 3}
-  m_PrefabInstance: {fileID: 1839929140}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1784397336 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3569070512445508244, guid: 246c8a5481e312d44aaf48cf9e2d692c,
@@ -1681,6 +1657,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 53786158, guid: 64035233c4c2b06488b3335d4a184f10, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 703832019, guid: 64035233c4c2b06488b3335d4a184f10, type: 3}
       propertyPath: m_RootOrder
       value: 2
