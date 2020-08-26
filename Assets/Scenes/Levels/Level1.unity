@@ -417,11 +417,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1691373916}
-    - target: {fileID: 3283819210843978778, guid: a3033d0963090ca47abe91af01c80ac4,
-        type: 3}
-      propertyPath: m_CustomSkybox
-      value: 
-      objectReference: {fileID: 2100000, guid: ff8507037bd9ffb459b984fad63c1029, type: 2}
     - target: {fileID: 3283819210843978779, guid: a3033d0963090ca47abe91af01c80ac4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -435,7 +430,7 @@ PrefabInstance:
     - target: {fileID: 3283819210843978779, guid: a3033d0963090ca47abe91af01c80ac4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 3283819210843978779, guid: a3033d0963090ca47abe91af01c80ac4,
         type: 3}
@@ -1202,6 +1197,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 817367303384090090, guid: e1320d49a763e92419cc4e9bb38bf950,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 817367303384090091, guid: e1320d49a763e92419cc4e9bb38bf950,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 817367303384091156, guid: e1320d49a763e92419cc4e9bb38bf950,
         type: 3}

@@ -17,22 +17,6 @@ public class Tutorial : MonoBehaviour
 
     void Start()
     {
-        /*if (swipe == swipeDirection.up)
-        {
-            anim.SetTrigger("up");
-        }
-        else if (swipe == swipeDirection.down)
-        {
-            anim.SetTrigger("down");
-        }
-        else if (swipe == swipeDirection.left)
-        {
-            anim.SetTrigger("left");
-        }
-        else
-        {
-            anim.SetTrigger("right");
-        }*/
     }
 
     private void OnTriggerEnter(Collider other)
@@ -62,4 +46,15 @@ public class Tutorial : MonoBehaviour
             }
         }
     }
+
+    public void PauseToTutorial()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void UnPauseToTutorial()
+    {
+        Time.timeScale = 1.0f;
+    }
+
 }
