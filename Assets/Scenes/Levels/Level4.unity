@@ -985,6 +985,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1951653220534480381, guid: 64035233c4c2b06488b3335d4a184f10,
+        type: 3}
+      propertyPath: confetis
+      value: 
+      objectReference: {fileID: 1756670789}
     - target: {fileID: 4042455095123035785, guid: 64035233c4c2b06488b3335d4a184f10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1264,6 +1269,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c12aca5aa04cfe74980bbcdc250999c2, type: 3}
+--- !u!1 &1756670789 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 21797600485014256, guid: c12aca5aa04cfe74980bbcdc250999c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1756670788}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1826693085
 PrefabInstance:
   m_ObjectHideFlags: 0

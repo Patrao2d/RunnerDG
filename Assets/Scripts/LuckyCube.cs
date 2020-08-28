@@ -5,7 +5,9 @@ using UnityEngine;
 public class LuckyCube : MonoBehaviour
 {
     public float luckyBoxRotation;
-    // Start is called before the first frame update
+    public float increaseSpeed;
+    public float decreaseSpeed;
+
     void Start()
     {
         float __randomPosition = Random.Range(-1.5f, 1.5f);
@@ -45,11 +47,11 @@ public class LuckyCube : MonoBehaviour
         switch (__RandomPowerNumber)
         {
             case 0:
-                SpeedValue.instance.DecreaseSpeed();
+                SpeedValue.instance.DecreaseSpeed(decreaseSpeed);
                 Destroy(gameObject);
             break;
             case 1:
-                SpeedValue.instance.IncreaseSpeed();
+                SpeedValue.instance.IncreaseSpeed(increaseSpeed);
                 Destroy(gameObject);
                 break;
             case 2:

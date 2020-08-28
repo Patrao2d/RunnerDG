@@ -33,7 +33,7 @@ public class SpeedValue : MonoBehaviour
             speed = Mathf.SmoothDamp(speed, maxSpeed, ref _cenaRandom, TimeToReachMaxSpeed);
     }
 
-    public void IncreaseSpeed()
+    public void IncreaseSpeed(float __speed)
     {
         if (_isOnCooldown == true)
         {
@@ -44,12 +44,13 @@ public class SpeedValue : MonoBehaviour
         {
             savedSpeed = speed;
         }
-        speed *= 1.3f;
+        //speed *= 1.3f;
+        speed += __speed;
         Invoke("BackToNormalSpeed", 5f);
         _isOnCooldown = false;
     }
 
-    public void DecreaseSpeed()
+    public void DecreaseSpeed(float __speed)
     {
         if (_isOnCooldown == true)
         {
@@ -60,7 +61,8 @@ public class SpeedValue : MonoBehaviour
         {
             savedSpeed = speed;
         }        
-        speed /= 1.3f;
+        //speed /= 1.3f;
+        speed -= __speed;
         Invoke("BackToNormalSpeed", 5f);
         _isOnCooldown = false;
     }

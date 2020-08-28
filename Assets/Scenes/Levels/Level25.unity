@@ -1347,6 +1347,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1739358811}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1739358813 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 21797600485014256, guid: c12aca5aa04cfe74980bbcdc250999c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1739358811}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1760841455
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2448,6 +2454,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1951653220534480381, guid: 64035233c4c2b06488b3335d4a184f10,
+        type: 3}
+      propertyPath: confetis
+      value: 
+      objectReference: {fileID: 1739358813}
     - target: {fileID: 4042455095123035785, guid: 64035233c4c2b06488b3335d4a184f10,
         type: 3}
       propertyPath: m_LocalPosition.x

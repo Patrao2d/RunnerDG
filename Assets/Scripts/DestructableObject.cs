@@ -19,7 +19,7 @@ public class DestructableObject : MonoBehaviour
 
     public IEnumerator HyperDestruction()
     {
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(3.5f);
         Destroy(gameObject);
     }
 }
