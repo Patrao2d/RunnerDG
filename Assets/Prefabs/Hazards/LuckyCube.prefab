@@ -171,6 +171,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   luckyBoxRotation: 20
+  increaseSpeed: 0.3
+  decreaseSpeed: 0.5
 --- !u!108 &764501857700964154
 Light:
   m_ObjectHideFlags: 0

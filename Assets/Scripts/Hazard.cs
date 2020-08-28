@@ -8,7 +8,7 @@ public class Hazard : MonoBehaviour
     public GameObject destructedObject;
 
     public enum obstacles { AllHigh, AllHighMedium, AllUnder, BigCenter, BigNormalCenter, HyperSpeedCube, NormalCenter,
-    ObstacleLLeft, ObstacleLRight, ObstacleT };
+    ObstacleLLeft, ObstacleLRight, ObstacleT, AllMidway };
     public obstacles obstacle;
 
     // Update is called once per frame
@@ -55,7 +55,8 @@ public class Hazard : MonoBehaviour
         {
             // Voltar aqui que isto é má logica
             Shield.instance.ExpandShield();
-            Destroy(gameObject);           
+            //Destroy(gameObject);
+            HyperImpact();
         }
     }
 
