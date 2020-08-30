@@ -39,9 +39,9 @@ public class Hazard : MonoBehaviour
                     "LevelLose",
                     new Dictionary<string, object>
                     {
-                        {"Level: ", PlayerPrefs.GetInt("levelAt") },
+                        {"Level: ", PlayerPrefs.GetInt("levelAt") + 1 },
                         {"Hazard: ", obstacle },
-                        {"Speed: ", SpeedValue.instance.speed },
+                        {"Speed: ", SpeedValue.instance.decimalSpeed },
                         {"Time: ", Mathf.RoundToInt(GameManager.instance.timer)}
                     }                    
                     );

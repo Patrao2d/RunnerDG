@@ -6,6 +6,7 @@ public class Tutorial : MonoBehaviour
 {
 
     private Animator anim;
+    private bool _canAnim = true;
     //public enum swipeDirection {up, down, left, right };
     //public swipeDirection swipe;
 
@@ -21,8 +22,10 @@ public class Tutorial : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Obstacle"))
+        if (other.CompareTag("Obstacle") && _canAnim == true)
         {
+            _canAnim = false;
+            StartCoroutine(SwipeAnimCooldown());
             switch (other.GetComponent<Obstacle>().dodgeDirection)
             {
                 case Obstacle.swipeDirection.sides:
@@ -55,6 +58,12 @@ public class Tutorial : MonoBehaviour
     public void UnPauseToTutorial()
     {
         Time.timeScale = 1.0f;
+    }
+
+    private IEnumerator SwipeAnimCooldown()
+    {
+        yield return new WaitForSeconds(0.1f);
+        _canAnim = true;
     }
 
 }

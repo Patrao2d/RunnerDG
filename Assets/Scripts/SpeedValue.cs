@@ -12,6 +12,7 @@ public class SpeedValue : MonoBehaviour
     public float TimeToReachMaxSpeed;
     private bool _isOnCooldown = false;
     public bool isOnHyperSpeed = false;
+    public double decimalSpeed = 0;
 
     private float _cenaRandom = 0.0f;
 
@@ -30,7 +31,13 @@ public class SpeedValue : MonoBehaviour
 
     private void Update()
     {
+            if (GameCanvas.instance.endGame == true)
+            {
+                return;
+            }
             speed = Mathf.SmoothDamp(speed, maxSpeed, ref _cenaRandom, TimeToReachMaxSpeed);
+
+            decimalSpeed = System.Math.Round(speed, 1);
     }
 
     public void IncreaseSpeed(float __speed)

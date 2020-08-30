@@ -992,6 +992,11 @@ PrefabInstance:
       propertyPath: confetis
       value: 
       objectReference: {fileID: 1735852243}
+    - target: {fileID: 1951653220534480381, guid: 64035233c4c2b06488b3335d4a184f10,
+        type: 3}
+      propertyPath: fadeDuration
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 4042455095123035785, guid: 64035233c4c2b06488b3335d4a184f10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1132,6 +1137,11 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 491060449, guid: c12aca5aa04cfe74980bbcdc250999c2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 21797600485014256, guid: c12aca5aa04cfe74980bbcdc250999c2,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}

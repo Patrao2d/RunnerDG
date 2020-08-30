@@ -14,6 +14,15 @@ public class SaveQuits : MonoBehaviour
 
     private void QuitLevel()
     {
-        Analytics.CustomEvent("GameQuit" + PlayerPrefs.GetInt("levelAt")); 
+        //Analytics.CustomEvent("GameQuit" + PlayerPrefs.GetInt("levelAt"));
+
+        AnalyticsResult analyticsResult = Analytics.CustomEvent(
+                    "GameQuit",
+                    new Dictionary<string, object>
+                    {
+                        {"Level: ", PlayerPrefs.GetInt("levelAt") + 1 }
+                    }
+                    );
+
     }
 }

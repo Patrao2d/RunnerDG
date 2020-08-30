@@ -98,10 +98,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5672788280942912544, guid: 39b32324fdf5a2b4493eae0a9f08e167,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672788280942912544, guid: 39b32324fdf5a2b4493eae0a9f08e167,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.95
+      objectReference: {fileID: 0}
     - target: {fileID: 6139931315840542232, guid: 39b32324fdf5a2b4493eae0a9f08e167,
         type: 3}
       propertyPath: m_Name
       value: ObstacleLLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244768682319245491, guid: 39b32324fdf5a2b4493eae0a9f08e167,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244768682319245491, guid: 39b32324fdf5a2b4493eae0a9f08e167,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.95
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39b32324fdf5a2b4493eae0a9f08e167, type: 3}

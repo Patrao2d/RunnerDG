@@ -78,6 +78,21 @@ PrefabInstance:
       propertyPath: obstacle
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7536417720804538244, guid: 5ce59513cfe677349b1c6e9ba4e19c40,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536417720804538244, guid: 5ce59513cfe677349b1c6e9ba4e19c40,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 7536417720804538244, guid: 5ce59513cfe677349b1c6e9ba4e19c40,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.95
+      objectReference: {fileID: 0}
     - target: {fileID: 8474714956632561968, guid: 5ce59513cfe677349b1c6e9ba4e19c40,
         type: 3}
       propertyPath: m_LocalScale.x
