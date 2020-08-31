@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 3606797780053630632}
   - component: {fileID: 1153335543009780980}
   - component: {fileID: 7339432264010685100}
+  - component: {fileID: 3177632203062412526}
   m_Layer: 9
   m_Name: AllUnderCube
   m_TagString: Obstacle
@@ -154,3 +155,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dodgeDirection: 1
+--- !u!114 &3177632203062412526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6478214312841688199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c183b63295368534ca20eb657d7d7658, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
