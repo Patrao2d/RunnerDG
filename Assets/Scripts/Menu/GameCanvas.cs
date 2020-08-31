@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Analytics;
 
 public class GameCanvas : MonoBehaviour
 {
@@ -18,7 +19,8 @@ public class GameCanvas : MonoBehaviour
     // Bools
     [HideInInspector]
     public bool isGamePaused = false;
-    private bool _endGame = false;
+    [HideInInspector]
+    public bool endGame = false;
     private bool winGame = true;
 
     public Button pauseButton;
@@ -46,19 +48,20 @@ public class GameCanvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (_endGame && Time.timeScale >= 0.1f)
+        if (endGame && SpeedValue.instance.speed > 0.4f)
         {
-            Time.timeScale -= 0.05f;
+            SpeedValue.instance.speed -= 0.10f;
         }
-        else if (_endGame && Time.timeScale < 0.1f)
+        else if (endGame && SpeedValue.instance.speed <= 0.4f)
         {
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
+            SpeedValue.instance.speed = 0.0f;
             if (winGame == true)
-            {               
+            {
                 RotatePlayer.instance.WinAnim();
-            } else
-            {              
+            }
+            else
+            {
                 RotatePlayer.instance.LoseAnim();
             }
         }
@@ -93,13 +96,23 @@ public class GameCanvas : MonoBehaviour
         TrackController.instance.ClearAllTracks();
         winMenu.SetActive(true);
         SlowdownPause();
+        Time.timeScale = 0.89f;
         winGame = true;
+        AnalyticsResult analyticsResult = Analytics.CustomEvent(
+                    "LevelComplete",
+                    new Dictionary<string, object>
+                    {
+                        {"Level: ", PlayerPrefs.GetInt("levelAt")},
+                    }
+                    );
+        Debug.Log(analyticsResult);
     }
 
     public void LoseMenu()
     {
         loseMenu.SetActive(true);
         SlowdownPause();
+        Time.timeScale = 0.89f;
         winGame = false;
     }
 
@@ -124,7 +137,7 @@ public class GameCanvas : MonoBehaviour
 
     public void CallNextLevelAd()
     {
-        int __chanceToAd = Random.Range(1, 10);
+        int __chanceToAd = Random.Range(1, 7);
         if (__chanceToAd == 1)
         {
             AdManager.instance.PlayInterstitialAd();
@@ -140,8 +153,9 @@ public class GameCanvas : MonoBehaviour
 
     private void SlowdownPause()
     {
-        _endGame = true;
+        endGame = true;
     }
+
 
     IEnumerator FadeToNextLevel()
     {

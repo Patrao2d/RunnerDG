@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private char splitter = ':';
     public float timer;
     private bool _active;
+    private bool _gameOver = false;
 
     private static GameManager _instance;
 
@@ -61,10 +62,12 @@ public class GameManager : MonoBehaviour
         float __minutes = ((int)timer / 60) % 60;
         timerText.text = __minutes.ToString("00") + splitter + __seconds.ToString("00");*/
         slider.value = timer;
-        if (slider.value >= slider.maxValue)
+        if (slider.value >= slider.maxValue && _gameOver == false)
         {
+            _gameOver = true;
             GameCanvas.instance.WinMenu();
             Player.instance.ChangeVulnerability();
+            Debug.Log("Fim");
         }
     }
 

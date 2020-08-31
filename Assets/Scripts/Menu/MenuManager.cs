@@ -47,6 +47,10 @@ public class MenuManager : MonoBehaviour
 
     public void CreditsMenu()
     {
+        // TO DELETE
+        PlayerPrefs.DeleteAll();
+        // TO DELETE
+
         creditsMenu.SetActive(true);
         mainMenu.SetActive(false);
     }

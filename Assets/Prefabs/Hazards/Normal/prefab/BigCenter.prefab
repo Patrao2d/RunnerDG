@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7191946210230299741}
   - component: {fileID: 434014947269091093}
   - component: {fileID: 5923563219424364480}
+  - component: {fileID: 1354010466377468507}
   m_Layer: 9
   m_Name: BigCenterCube
   m_TagString: Obstacle
@@ -94,7 +95,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.95, y: 0.95, z: 0.95}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7191946210230299741
 MonoBehaviour:
@@ -125,6 +126,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dodgeDirection: 0
 --- !u!114 &5923563219424364480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3037864804373494830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a048f7de3ad52409243310c8ff602d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1354010466377468507
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

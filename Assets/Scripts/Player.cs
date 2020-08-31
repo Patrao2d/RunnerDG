@@ -6,12 +6,12 @@ public class Player : MonoBehaviour
 {
 
     // Bools
-    private bool _onGround;
+    public bool onGround;
     private bool _isSliding;
     public bool isInvulnerable;
     [HideInInspector]public bool isShieldActive;
-    private bool canJump = true;
-    private bool canSlide = true;
+    public bool canJump = true;
+    public bool canSlide = true;
 
     // GameObjects
     public GameObject shield;
@@ -66,16 +66,16 @@ public class Player : MonoBehaviour
                 transform.position = new Vector3(Mathf.Clamp(transform.position.x + touch.deltaPosition.x / speedModifier, -2, 2),
                     transform.position.y, transform.position.z);
 
-                if (transform.position.y + touch.deltaPosition.y > 44.5f && canJump && !_onGround)
+                if (transform.position.y + touch.deltaPosition.y > 40.5f && canJump && !onGround)
                 {
                     RotatePlayer.instance.JumpAnim();
                     canJump = false;
                     _rb.AddForce(0, 1500f * Time.fixedDeltaTime, 0, ForceMode.Impulse);
                     Invoke("CanJumpAgain", 0.1f);
                 }
-                else if (transform.position.y + touch.deltaPosition.y < -44.5f && canSlide)
+                else if (transform.position.y + touch.deltaPosition.y < -40.5f && canSlide)
                 {
-                    if (!_onGround && !_isSliding)
+                    if (!onGround && !_isSliding)
                     {
                         transform.localScale /= 1.5f;
                         _isSliding = true;
@@ -94,7 +94,7 @@ public class Player : MonoBehaviour
 
         // works this way for some reason, TO FIX LATER
         float __extraHeight = 100f;
-        _onGround = Physics.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, Vector3.down, 
+        onGround = Physics.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, Vector3.down, 
             Quaternion.identity, __extraHeight, platformLayer);
 
         if (Input.GetKeyDown(KeyCode.I))
@@ -102,9 +102,20 @@ public class Player : MonoBehaviour
             ChangeVulnerability();
         }
 
+        if (Input.GetKey(KeyCode.A) && transform.position.x >= -1.8)
+        {
+            transform.position = new Vector3(transform.position.x - 0.2f, transform.position.y, transform.position.z);
+        }
+
+        if (Input.GetKey(KeyCode.D) && transform.position.x <= 1.8)
+        {
+            transform.position = new Vector3(transform.position.x + 0.2f, transform.position.y, transform.position.z);
+        }
+
+
         if (Input.GetKeyDown(KeyCode.S))
         {
-            if (!_onGround && !_isSliding)
+            if (!onGround && !_isSliding)
             {
                 transform.localScale /= 1.5f;
                 _isSliding = true;
@@ -117,7 +128,7 @@ public class Player : MonoBehaviour
         }
 
         // works this way for some reason, TO FIX LATER
-        if (Input.GetKeyDown(KeyCode.Space) && !_onGround || Input.GetKeyDown(KeyCode.W) && !_onGround)
+        if (Input.GetKeyDown(KeyCode.Space) && !onGround || Input.GetKeyDown(KeyCode.W) && !onGround)
         {
             _rb.AddForce(0, 1500f * Time.fixedDeltaTime, 0, ForceMode.Impulse);
             RotatePlayer.instance.JumpAnim();
@@ -128,20 +139,12 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (Input.GetKey(KeyCode.A) && transform.position.x >= -1.8)
-        {
-            transform.position = new Vector3(transform.position.x - 0.2f, transform.position.y, transform.position.z);
-        }
-
-        if (Input.GetKey(KeyCode.D) && transform.position.x <= 1.8)
-        {
-            transform.position = new Vector3(transform.position.x + 0.2f, transform.position.y, transform.position.z);
-        }
+        
     }
 
     private IEnumerator Sliding()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.6f);
         transform.localScale *= 1.5f;
         _isSliding = false;
     }
