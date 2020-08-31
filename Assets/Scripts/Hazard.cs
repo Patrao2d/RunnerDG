@@ -56,6 +56,10 @@ public class Hazard : MonoBehaviour
             Shield.instance.ExpandShield();
             HyperImpact();
         }
+        if (other.CompareTag("Shield") && SpeedValue.instance.isOnHyperSpeed == true)
+        {
+            HyperImpact();
+        }
     }
 
     private void HyperImpact()
