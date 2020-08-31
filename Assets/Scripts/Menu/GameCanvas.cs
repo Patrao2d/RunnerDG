@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Analytics;
 
 public class GameCanvas : MonoBehaviour
 {
@@ -97,6 +98,14 @@ public class GameCanvas : MonoBehaviour
         SlowdownPause();
         Time.timeScale = 0.89f;
         winGame = true;
+        AnalyticsResult analyticsResult = Analytics.CustomEvent(
+                    "LevelComplete",
+                    new Dictionary<string, object>
+                    {
+                        {"Level: ", PlayerPrefs.GetInt("levelAt")},
+                    }
+                    );
+        Debug.Log(analyticsResult);
     }
 
     public void LoseMenu()

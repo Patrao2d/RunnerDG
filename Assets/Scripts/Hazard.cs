@@ -51,11 +51,9 @@ public class Hazard : MonoBehaviour
             }
             
         }
-        if (other.CompareTag("Shield"))
+        if (other.CompareTag("Shield") && SpeedValue.instance.isOnHyperSpeed == false)
         {
-            // Voltar aqui que isto é má logica
             Shield.instance.ExpandShield();
-            //Destroy(gameObject);
             HyperImpact();
         }
     }
