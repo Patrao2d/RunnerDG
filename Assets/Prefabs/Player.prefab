@@ -395,6 +395,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConfettiBurst
       objectReference: {fileID: 0}
+    - target: {fileID: 3589309479233173861, guid: 3b424aab6dd583b43b400907f617355f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3589309479233173862, guid: 3b424aab6dd583b43b400907f617355f,
         type: 3}
       propertyPath: m_LocalPosition.x

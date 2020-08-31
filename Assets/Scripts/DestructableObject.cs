@@ -13,13 +13,13 @@ public class DestructableObject : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 _speed = new Vector3(0f, 0f, -SpeedValue.instance.speed / 2);
+        Vector3 _speed = new Vector3(0f, 0f, -SpeedValue.instance.speed / 1.5f);
         transform.Translate(_speed * forward);
     }
 
     public IEnumerator HyperDestruction()
     {
-        yield return new WaitForSecondsRealtime(3.5f);
+        yield return new WaitForSecondsRealtime(1.5f);
         Destroy(gameObject);
     }
 }
