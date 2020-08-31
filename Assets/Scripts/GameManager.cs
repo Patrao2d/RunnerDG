@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
         _active = true;
         Time.timeScale = 1;
         slider.maxValue = totalLevelDuration;
+        StartCoroutine(HideBannerAd());
     }
     void Update()
     {
@@ -67,8 +68,13 @@ public class GameManager : MonoBehaviour
             _gameOver = true;
             GameCanvas.instance.WinMenu();
             Player.instance.ChangeVulnerability();
-            Debug.Log("Fim");
         }
+    }
+
+    private IEnumerator HideBannerAd()
+    {
+        yield return new WaitForSeconds(0.5f);
+        AdManager.instance.HideBannerAd();
     }
 
 }
