@@ -63,17 +63,17 @@ public class Player : MonoBehaviour
 
             if (touch.phase == TouchPhase.Moved)
             {             
-                transform.position = new Vector3(Mathf.Clamp(transform.position.x + touch.deltaPosition.x / speedModifier, -2, 2),
+                transform.position = new Vector3(Mathf.Clamp(transform.position.x + touch.deltaPosition.x / speedModifier, -1.85f, 1.85f),
                     transform.position.y, transform.position.z);
 
-                if (transform.position.y + touch.deltaPosition.y > 40.5f && canJump && !onGround)
+                if (transform.position.y + touch.deltaPosition.y > 36.5f && canJump && !onGround)
                 {
                     RotatePlayer.instance.JumpAnim();
                     canJump = false;
                     _rb.AddForce(0, 1500f * Time.fixedDeltaTime, 0, ForceMode.Impulse);
                     Invoke("CanJumpAgain", 0.1f);
                 }
-                else if (transform.position.y + touch.deltaPosition.y < -40.5f && canSlide)
+                else if (transform.position.y + touch.deltaPosition.y < -36.5f && canSlide)
                 {
                     if (!onGround && !_isSliding)
                     {
@@ -104,12 +104,12 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A) && transform.position.x >= -1.8)
         {
-            transform.position = new Vector3(transform.position.x - 0.2f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x - 0.10f, transform.position.y, transform.position.z);
         }
 
         if (Input.GetKey(KeyCode.D) && transform.position.x <= 1.8)
         {
-            transform.position = new Vector3(transform.position.x + 0.2f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x + 0.10f, transform.position.y, transform.position.z);
         }
 
 

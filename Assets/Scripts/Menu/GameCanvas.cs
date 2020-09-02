@@ -106,6 +106,10 @@ public class GameCanvas : MonoBehaviour
                     }
                     );
         Debug.Log(analyticsResult);
+        if (nextSceneLoad > PlayerPrefs.GetInt("levelAt"))
+        {
+            PlayerPrefs.SetInt("levelAt", nextSceneLoad);
+        }
     }
 
     public void LoseMenu()
@@ -125,6 +129,7 @@ public class GameCanvas : MonoBehaviour
             DelayedStart.instance.PlayAnim();
             isGamePaused = !isGamePaused;
             Time.timeScale = 1;
+            AdManager.instance.HideBannerAd();
         }
         else if (!isGamePaused && Time.timeScale == 1)
         {
@@ -132,6 +137,7 @@ public class GameCanvas : MonoBehaviour
             pauseMenu.SetActive(true);           
             pauseButton.GetComponent<Image>().sprite = pauseImage;         
             isGamePaused = !isGamePaused;
+            AdManager.instance.PlayBannerAd();
         }
     }
 
@@ -163,7 +169,8 @@ public class GameCanvas : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(0.35f);
 
-        if (SceneManager.GetActiveScene().buildIndex == 37)
+        SceneManager.LoadScene(nextSceneLoad);
+        /*if (SceneManager.GetActiveScene().buildIndex == 37)
         {
             SceneManager.LoadScene(nextSceneLoad);
             Debug.Log("current last level");
@@ -175,6 +182,6 @@ public class GameCanvas : MonoBehaviour
             {
                 PlayerPrefs.SetInt("levelAt", nextSceneLoad);
             }
-        }
+        }*/
     }
 }
