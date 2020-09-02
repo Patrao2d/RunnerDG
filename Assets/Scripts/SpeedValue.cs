@@ -92,7 +92,7 @@ public class SpeedValue : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         speed = savedSpeed;
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(0.4f);
         isOnHyperSpeed = false;
     }
 }

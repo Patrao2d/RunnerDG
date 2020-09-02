@@ -87,7 +87,7 @@ public class CurveController : MonoBehaviour
     private void NewValues()
     {
         newY = Random.Range(-8f, 0f);
-        newX = Random.Range(-11f, 11f);
+        newX = Random.Range(-9f, 9f);
         //StartCoroutine(ChangeValuesCooldown());
     }
 
