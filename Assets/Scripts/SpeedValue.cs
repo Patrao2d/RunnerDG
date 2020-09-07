@@ -55,6 +55,7 @@ public class SpeedValue : MonoBehaviour
         speed += __speed;
         Invoke("BackToNormalSpeed", 5f);
         _isOnCooldown = false;
+        Player.instance.spriteRenderer.sprite = Player.instance.speedUp;
     }
 
     public void DecreaseSpeed(float __speed)
@@ -72,12 +73,14 @@ public class SpeedValue : MonoBehaviour
         speed -= __speed;
         Invoke("BackToNormalSpeed", 5f);
         _isOnCooldown = false;
+        Player.instance.spriteRenderer.sprite = Player.instance.speedDown;
     }
 
 
     private void BackToNormalSpeed()
     {
         speed = savedSpeed;
+        Player.instance.spriteRenderer.sprite = Player.instance.none;
     }
 
     public void HyperSpeed()

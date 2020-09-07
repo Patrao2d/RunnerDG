@@ -483,7 +483,7 @@ PrefabInstance:
     - target: {fileID: 3569070512445508245, guid: 246c8a5481e312d44aaf48cf9e2d692c,
         type: 3}
       propertyPath: numberOfObstacles.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3569070512445508245, guid: 246c8a5481e312d44aaf48cf9e2d692c,
         type: 3}
