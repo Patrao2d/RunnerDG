@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [HideInInspector]public bool isShieldActive;
     public bool canJump = true;
     public bool canSlide = true;
+    
 
     // GameObjects
     public GameObject shield;
@@ -33,6 +34,12 @@ public class Player : MonoBehaviour
     private enum _Swipe { None, Up, Down, Left, Right };
 
     private static _Swipe swipeDirection;
+
+    // Sprite
+    public SpriteRenderer spriteRenderer;
+    public Sprite speedDown;
+    public Sprite speedUp;
+    public Sprite none;
 
     private static Player _instance;
 
@@ -66,14 +73,14 @@ public class Player : MonoBehaviour
                 transform.position = new Vector3(Mathf.Clamp(transform.position.x + touch.deltaPosition.x / speedModifier, -1.85f, 1.85f),
                     transform.position.y, transform.position.z);
 
-                if (transform.position.y + touch.deltaPosition.y > 36.5f && canJump && !onGround)
+                if (transform.position.y + touch.deltaPosition.y > 33.5f && canJump && !onGround)
                 {
                     RotatePlayer.instance.JumpAnim();
                     canJump = false;
                     _rb.AddForce(0, 1500f * Time.fixedDeltaTime, 0, ForceMode.Impulse);
                     Invoke("CanJumpAgain", 0.1f);
                 }
-                else if (transform.position.y + touch.deltaPosition.y < -36.5f && canSlide)
+                else if (transform.position.y + touch.deltaPosition.y < -33.5f && canSlide)
                 {
                     if (!onGround && !_isSliding)
                     {

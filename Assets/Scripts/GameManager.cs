@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public float timer;
     private bool _active;
     private bool _gameOver = false;
+    public bool showFinishLine = false;
 
     private static GameManager _instance;
 
@@ -68,6 +69,12 @@ public class GameManager : MonoBehaviour
             _gameOver = true;
             GameCanvas.instance.WinMenu();
             Player.instance.ChangeVulnerability();
+        }
+
+        if (totalLevelDuration - timer <= 3.9f / SpeedValue.instance.speed  && showFinishLine == false)
+        {
+            showFinishLine = true;
+            TrackController.instance.FinishTrack();
         }
     }
 
