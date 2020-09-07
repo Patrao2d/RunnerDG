@@ -95,6 +95,8 @@ public class Track : MonoBehaviour
 
     private void InstantiateObstacles()
     {
+        //if (GameManager.instance.showFinishLine == true) { return; }
+
         newObstacles.Clear();
         GenerateRandomNumber();
 

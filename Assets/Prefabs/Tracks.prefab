@@ -765,6 +765,7 @@ MonoBehaviour:
   - {fileID: 3569070512445508251}
   - {fileID: 3569070513395296072}
   - {fileID: 3569070512744678086}
+  finishMaterial: {fileID: 2100000, guid: f445ceb2fde531d469ee86f06c926d5f, type: 2}
 --- !u!1 &3569070512373312378
 GameObject:
   m_ObjectHideFlags: 0

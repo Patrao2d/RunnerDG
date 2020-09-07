@@ -7,34 +7,27 @@ public class LuckyCube : MonoBehaviour
     public float luckyBoxRotation;
     public float increaseSpeed;
     public float decreaseSpeed;
+    private float startYPos;
 
     void Start()
     {
-        float __randomPosition = Random.Range(-1.5f, 1.5f);
-        transform.position = transform.position = new Vector3(__randomPosition, transform.position.y, transform.position.z);
-        /*switch (__randomPosition)
-        {
-            case 0:
-                transform.position = new Vector3(-1.5f, transform.position.y, transform.position.z);
-                break;
-            case 1:
-                transform.position = new Vector3(0, transform.position.y, transform.position.z);
-                break;
-            case 2:
-                transform.position = new Vector3(1.5f, transform.position.y, transform.position.z);
-                break;
+        float __randomPositionX = Random.Range(-1.5f, 1.5f);
+        float __randomPositionY = Random.Range(1.25f, 2.5f);
+        
+        transform.position = new Vector3(__randomPositionX, __randomPositionY, transform.position.z);
 
-        }*/
+        startYPos = __randomPositionY;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        float __randomX = Random.Range((transform.rotation.x) - luckyBoxRotation, transform.rotation.x + luckyBoxRotation);
-        float __randomY = Random.Range((transform.rotation.y) - luckyBoxRotation, transform.rotation.y + luckyBoxRotation);
-        float __randomZ = Random.Range((transform.rotation.z) - luckyBoxRotation, transform.rotation.z + luckyBoxRotation);
+        transform.Rotate(0, 1, 0, Space.Self);
 
-        transform.Rotate(__randomX, __randomY, __randomZ, Space.Self);
+        //transform.position.y = Mathf.PingPong(Time.time, )
+        //transform.position = new Vector3(transform.position.x, Mathf.PingPong(Time.time, 2), transform.position.z);
+        transform.position = new Vector3(transform.position.x, Mathf.Cos(Mathf.PingPong(Time.time * 2.5f, startYPos)) -2.5f, transform.position.z);
+
     }
 
     private void GenerateRandomPower()

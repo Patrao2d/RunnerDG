@@ -916,6 +916,11 @@ PrefabInstance:
       propertyPath: obstacles.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3569070511864212966, guid: 246c8a5481e312d44aaf48cf9e2d692c,
+        type: 3}
+      propertyPath: numberOfObstacles.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3569070511949267591, guid: 246c8a5481e312d44aaf48cf9e2d692c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

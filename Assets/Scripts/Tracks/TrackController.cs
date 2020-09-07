@@ -7,9 +7,12 @@ public class TrackController : MonoBehaviour
     public GameObject[] Tracks;
     private GameObject _currentTrack;
     private GameObject _lastTrack;
-    private int _currentTrackValue = 0;
+   [SerializeField] private int _currentTrackValue = 0;
     private int _currentLastTrackValue = 9;
+    private int _finishTrack;
     private static TrackController _instance;
+
+    public Material finishMaterial;
 
     public static TrackController instance
     {
@@ -69,7 +72,56 @@ public class TrackController : MonoBehaviour
         {
             __track.GetComponent<Track>().ClearTrack();
         }
+    }
+
+    public void FinishTrack()
+    {
+        _finishTrack = _currentTrackValue + 4;
+        /*switch (_finishTrack)
+        {
+            case 9:
+                _finishTrack = 0;
+                break;
+            case 10:
+                _finishTrack = 1;
+                break;
+            case 11:
+                _finishTrack = 2;
+                break;
+            case 12:
+                _finishTrack = 3;
+                break;
+        }*/
+
+        for (int i = 0; i < 4; i++)
+        {
+            //Tracks[_finishTrack].GetComponentInChildren<Renderer>().material = finishMaterial;
+            //Tracks[_finishTrack].GetComponent<Track>().ClearTrack();
+
+            switch (_finishTrack)
+            {
+                case 10:
+                    _finishTrack = 0;
+                    break;
+                case 11:
+                    _finishTrack = 1;
+                    break;
+                case 12:
+                    _finishTrack = 2;
+                    break;
+                case 13:
+                    _finishTrack = 3;
+                    break;
+            }
+
+            Tracks[_finishTrack].GetComponentInChildren<Renderer>().material = finishMaterial;
+            Tracks[_finishTrack].GetComponent<Track>().ClearTrack();
+
+            _finishTrack++;
+        }
 
     }
+
+
 
 }
